@@ -1,7 +1,8 @@
 # import system libraries
 #import re
-import time
-from multiprocessing import Process,Queue
+#import time
+import sys
+from multiprocessing import Process,Queue,Pipe
 
 # import Merc libraries
 from merc_network import Merc_Network
@@ -9,6 +10,7 @@ from merc_database import Merc_Database
 from merc_packets_queue import Merc_Packets_Queue
 from merc_processing import Merc_Processing
 from merc_counters import Merc_Counters
+from merc_monitor import Merc_Monitor
 
 TCP_NUMBER_PROCESS = 10
 UDP_NUMBER_PROCESS = 2
@@ -20,11 +22,19 @@ if __name__ == '__main__':
 	# Create de variables
 	Procs = []
 	Counters = Merc_Counters()
+	Mon_Pipe_Parent, Mon_Pipe_Child = Pipe()
 	Sync_Queue = Queue()
 	Pkts_Queue = Merc_Packets_Queue()
+	Mon_Proc = Merc_Monitor(Counters, Mon_Pipe_Child)
 	Net_Proc = Merc_Network('ens32', Counters, Pkts_Queue, Sync_Queue)
 	Mem_DB = Merc_Database(True, Sync_Queue)
 	Pkts_Proc = Merc_Processing(Counters, Mem_DB, Sync_Queue)
+
+	# Create the monitor process
+	Mon_P = Process(target=Mon_Proc.merc_monitor_process, args=())
+	Mon_P.daemon = True
+	Mon_P.start()
+	Procs.append(Mon_P)
 
 	# Create the process to process the packets based in the protocol
 	for i in range(0, TCP_NUMBER_PROCESS):
@@ -59,25 +69,9 @@ if __name__ == '__main__':
 	Procs.append(NP)
 
 	while True:
-		TCP_received_packets = Counters.merc_counters_get_received_TCP()
-		UDP_received_packets = Counters.merc_counters_get_received_UDP()
-		ICMP_received_packets = Counters.merc_counters_get_received_ICMP()
-		TCP_processed_packets = Counters.merc_counters_get_received_TCP()
-		UDP_processed_packets = Counters.merc_counters_get_received_UDP()
-		ICMP_processed_packets = Counters.merc_counters_get_received_ICMP()
-
-		print('\n\n--- PACKET PROCESS REPORT ---')
-		print('- TCP')
-		print('-- Received: ' + str(TCP_received_packets))
-		print('-- Processed: ' + str(TCP_processed_packets))
-		print('- UDP')
-		print('-- Received: ' + str(UDP_received_packets))
-		print('-- Processed: ' + str(UDP_processed_packets))
-		print('- ICMP')
-		print('-- Received: ' + str(ICMP_received_packets))
-		print('-- Processed: ' + str(ICMP_processed_packets))
-
-		time.sleep(2)
+		[protocol, value] = Mon_Pipe_Parent.recv()
+		print(protocol + ' protocol needs ' + str(value) + 'process more!')
+		sys.exit()
 
 	# Link all the process with main
 	#for proc in Procs:

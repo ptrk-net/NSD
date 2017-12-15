@@ -37,7 +37,6 @@ class Merc_Network:
 
 				getattr(self.PQ, 'merc_packets_queue_insert_' + self.Protocols_Table[prot])(packet)
 				getattr(self.Counters, 'merc_counters_increment_received_' + self.Protocols_Table[prot])()
-				counter.merddc_counter_increment()
 			except NotImplementedError as msg:
 				print('ERROR: ' + str(msg))
 				self.SQ.put('KILL')

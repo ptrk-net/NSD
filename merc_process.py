@@ -1,5 +1,6 @@
 # import system libraries
 import socket
+import unicodedata
 
 
 # import Merc libraries
@@ -57,9 +58,9 @@ class Merc_Process:
 				Dest_Port =  int.from_bytes(packet[36:38], byteorder='big')
 				Sequence_Number = int.from_bytes(packet[38:42], byteorder='big')
 				ACK_Number = int.from_bytes(packet[42:46], byteorder='big')
-				Data = str(packet[54:])
+				Data = packet[54:].decode('unicode_escape').encode('utf-8')
 		
-				#print([Date, Source_IP, Dest_IP, Source_Port, Dest_Port, Sequence_Number, ACK_Number, Data])
+				#print([Source_IP, Dest_IP, Source_Port, Dest_Port, Sequence_Number, ACK_Number, Data])
 				self.DB.merc_database_insert_TCP_packet_inMemory([Source_IP, Dest_IP, Source_Port, Dest_Port, Sequence_Number, ACK_Number, Data])
 
 				self.Counters.merc_counters_increment_processed_TCP()

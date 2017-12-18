@@ -67,7 +67,7 @@ class Merc_Database:
 			str(pkt[3]) + ', ' + \
 			str(pkt[4]) + ', ' + \
 			str(pkt[5]) + ', ' + \
-			'"' + pkt[6] + '"' + \
+			'"' + str(pkt[6]) + '"' + \
 			');'
 		#print(statement)
 		#self.SQ.put('KILL')

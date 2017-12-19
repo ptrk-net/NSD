@@ -11,8 +11,8 @@ class Merc_Packets_Queue:
 		self.ICMP_Queue = Queue()
  
 	# Process
-	def merc_packets_queue_insert_HOPOPTS(self, packet):
-		raise NotImplementedError('developing HOPOPTS..')
+	def merc_packets_queue_insert_HOPOPT(self, packet):
+		raise NotImplementedError('developing HOPOPT..')
 
 	def merc_packets_queue_insert_IP(self, packet):
 		raise NotImplementedError('developing IP..')

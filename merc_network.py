@@ -9,11 +9,30 @@ class Merc_Network:
 	# Init method
 	def __init__(self, interface, counters, pkts_queue, sync_queue):
 		self.iface = interface
-		#self.Protocols_Table = {num:[name[8:],0] for name,num in vars(socket).items() if name.startswith("IPPROTO")}
-		self.Protocols_Table = {num:name[8:] for name,num in vars(socket).items() if name.startswith("IPPROTO")}
 		self.Counters = counters
 		self.PQ = pkts_queue
 		self.SQ = sync_queue
+		self.Protocols_Table = dict()
+		#self.Protocols_Table = {num:[name[8:],0] for name,num in vars(socket).items() if name.startswith("IPPROTO")}
+
+		try:
+			prot_file = open('Protocols', 'r')
+		except IOError as e:
+			print('I/O error: ' + str(e.errno) + str(e.strerror))
+			return
+		#self.Protocols_Table = {int(values[0]):values[2] for values in prot_file.readline().split(':')}
+		try:
+			for line in prot_file.readlines():
+				values = line.split(':')
+				self.Protocols_Table[int(values[0])] = values[2]
+		finally:
+			prot_file.close()
+
+		#self.Protocols_Table = {num:name[8:] for name,num in vars(socket).items() if name.startswith("IPPROTO")}
+		#i=0
+		#while i < len(self.Protocols_Table):
+		#	print('Protocol: ' + str(i) + ' -> ' + str(self.Protocols_Table[i]))
+		#	i += 1
 
 		try:
 			if platform.system() == 'Linux' :
@@ -33,15 +52,17 @@ class Merc_Network:
 				packet = self.sock.recv(65565)
 				prot = int.from_bytes(packet[23:24], byteorder='big')
 
-				#print('Protocol: ' + self.Protocols_Table[prot][0] + ' --> ' + str(self.Protocols_Table[prot][1]))
+				#print('Protocol: ' + str(prot) + ' --> ' + self.Protocols_Table[prot])
 
 				getattr(self.PQ, 'merc_packets_queue_insert_' + self.Protocols_Table[prot])(packet)
 				getattr(self.Counters, 'merc_counters_increment_received_' + self.Protocols_Table[prot])()
+			except AttributeError as msg:
+				print('Not Implemented Error: ' + str(msg))
 			except NotImplementedError as msg:
-				print('ERROR: ' + str(msg))
+				print('Not Implemented Error: ' + str(msg))
 				self.SQ.put('KILL')
 			except KeyError as msg:
-				print('No protocol found: ' + str(msg))
+				print('No protocol found: ' + str(prot) + '--> ' + str(packet))
 				#print(packet)
 			except KeyboardInterrupt:
 				print('Closing socket..')

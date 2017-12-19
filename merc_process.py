@@ -64,6 +64,8 @@ class Merc_Process:
 				self.DB.merc_database_insert_TCP_packet_inMemory([Source_IP, Dest_IP, Source_Port, Dest_Port, Sequence_Number, ACK_Number, Data])
 
 				self.Counters.merc_counters_increment_processed_TCP()
+			except UnicodeDecodeError as msg:
+				print('TCP Codec Error: ' + str(msg))
 			except KeyboardInterrupt:
 				print('Closing TCP process..')
 				return
@@ -84,12 +86,14 @@ class Merc_Process:
 				Dest_IP = socket.inet_ntoa(packet[30:34])
 				Source_Port = int.from_bytes(packet[34:36], byteorder='big')
 				Dest_Port =  int.from_bytes(packet[36:38], byteorder='big')
-				Data = str(packet[42:])
+				Data = packet[42:].decode('unicode_escape').encode('utf-8')
 
 				#print([Date, Source_IP, Dest_IP, Source_Port, Dest_Port, Data])
 				self.DB.merc_database_insert_UDP_packet_inMemory([Source_IP, Dest_IP, Source_Port, Dest_Port, Data])
 
 				self.Counters.merc_counters_increment_processed_UDP()
+			except UnicodeDecodeError as msg:
+				print('UDP Codec Error: ' + str(msg))
 			except KeyboardInterrupt:
 				print('Closing UDP process..')
 				return
@@ -176,20 +180,10 @@ class Merc_Process:
 	def merc_process_conversation_TCP(self, queue):
 		while True:
 			try:
-				packet = queue.get()
-
-				Source_IP = socket.inet_ntoa(packet[26:30])
-				Dest_IP = socket.inet_ntoa(packet[30:34])
-				Source_Port = int.from_bytes(packet[34:36], byteorder='big')
-				Dest_Port =  int.from_bytes(packet[36:38], byteorder='big')
-				Sequence_Number = int.from_bytes(packet[38:42], byteorder='big')
-				ACK_Number = int.from_bytes(packet[42:46], byteorder='big')
-				Data = str(packet[54:])
-		
-				#print([Date, Source_IP, Dest_IP, Source_Port, Dest_Port, Sequence_Number, ACK_Number, Data])
-				self.DB.merc_database_insert_TCP_packet_inMemory([Source_IP, Dest_IP, Source_Port, Dest_Port, Sequence_Number, ACK_Number, Data])
-
-				self.Counters.merc_counters_increment_processed_TCP()
+				select = "SELECT Source_IP, Dest_IP, Source_Port, Dest_Port, MAX(Sequence_Number), MAX(ACK_Number) FROM TCP GROUP BY Source_IP, Dest_IP, Source_Port, Dest_Port"
+				delete = "DELETE FROM TCP WHERE "
+				with self.DB.merc_database_get_lock():
+					print('aaa')
 			except KeyboardInterrupt:
 				print('Closing TCP process..')
 				return

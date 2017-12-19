@@ -22,9 +22,9 @@ class Merc_Database:
 	# Init in-memory database
 	def merc_database_init_inMemory(self):
 		print('Creating Database in memory...')
-		Merc_Database.merc_database_execute(self,'CREATE TABLE IF NOT EXISTS TCP(Source_IP TEXT, Dest_IP TEXT, Source_Port INT, Dest_Port INT, Sequence_Number INT, ACK_Number INT, Date TEXT, Data TEXT);')
-		Merc_Database.merc_database_execute(self,'CREATE TABLE IF NOT EXISTS UDP(Source_IP TEXT, Dest_IP TEXT, Source_Port INT, Dest_Port INT, Date TEXT, Data TEXT);')
-		Merc_Database.merc_database_execute(self,'CREATE TABLE IF NOT EXISTS ICMP(Source_IP TEXT, Dest_IP TEXT, Type INT, Code INT, Date TEXT);')
+		Merc_Database.merc_database_execute(self, 'CREATE TABLE IF NOT EXISTS TCP(Source_IP TEXT, Dest_IP TEXT, Source_Port INT, Dest_Port INT, Sequence_Number INT, ACK_Number INT, Date TEXT, Data TEXT);', '')
+		Merc_Database.merc_database_execute(self, 'CREATE TABLE IF NOT EXISTS UDP(Source_IP TEXT, Dest_IP TEXT, Source_Port INT, Dest_Port INT, Date TEXT, Data TEXT);', '')
+		Merc_Database.merc_database_execute(self, 'CREATE TABLE IF NOT EXISTS ICMP(Source_IP TEXT, Dest_IP TEXT, Type INT, Code INT, Date TEXT);', '')
 		Merc_Database.merc_database_commit(self)
 		#for row in self.cursor.execute('pragma table_info(UDP);'):
 		#	print(row)
@@ -32,19 +32,20 @@ class Merc_Database:
 		
 	# Init  database
 	def merc_database_init_inFile(self):
-		Merc_Database.merc_database_execute(self,'CREATE TABLE IF NOT EXISTS TCP(Source_IP TEXT, Dest_IP TEXT, Source_Port INT, Dest_Port INT, Last_Sequence_Number INT, Last_ACK_Number INT, Initial_Date TEXT, Final_Date TEXT, Total_Bytes INT, Conversation INT);')
-		Merc_Database.merc_database_execute(self,'CREATE TABLE IF NOT EXISTS UDP(Source_IP TEXT, Dest_IP TEXT, Source_Port INT, Dest_Port INT, Initial_Date TEXT, Final_Date TEXT, Total_Bytes INT, Conversation INT);')
-		Merc_Database.merc_database_execute(self,'CREATE TABLE IF NOT EXISTS ICMP(Source_IP TEXT, Dest_IP TEXT, Type INT, Code INT, Number_Packets INT, Conversation INT);')
+		Merc_Database.merc_database_execute(self, 'CREATE TABLE IF NOT EXISTS TCP(Source_IP TEXT, Dest_IP TEXT, Source_Port INT, Dest_Port INT, Last_Sequence_Number INT, Last_ACK_Number INT, Initial_Date TEXT, Final_Date TEXT, Total_Bytes INT, Conversation INT);', '')
+		Merc_Database.merc_database_execute(self, 'CREATE TABLE IF NOT EXISTS UDP(Source_IP TEXT, Dest_IP TEXT, Source_Port INT, Dest_Port INT, Initial_Date TEXT, Final_Date TEXT, Total_Bytes INT, Conversation INT);', '')
+		Merc_Database.merc_database_execute(self, 'CREATE TABLE IF NOT EXISTS ICMP(Source_IP TEXT, Dest_IP TEXT, Type INT, Code INT, Number_Packets INT, Conversation INT);', '')
 		Merc_Database.merc_database_commit(self)
 
 	# Execute statement
-	def merc_database_execute(self, statement):
+	def merc_database_execute(self, statement, variables):
 		try:
-			return self.cursor.execute(statement)
+			#print('--> ' + statement + ' ' + str(variables))
+			return self.cursor.execute(statement, variables)
 		except sqlite3.Error as error:
 			self.db.rollback()
 			print('Error executing statement: ' + error.args[0] + ': ' + statement)
-			self.SQ.put('KILL')
+			#self.SQ.put('KILL')
 
 	# Commit
 	def merc_database_commit(self):
@@ -54,60 +55,41 @@ class Merc_Database:
 	def merc_database_close(self):
 		self.db.close()
 
+	# Close
+	def merc_database_get_lock(self):
+		return self.db
+
 	# Insert TCP packets into the memory database
 	def merc_database_insert_TCP_packet_inMemory(self, pkt):
 		Date = datetime.now().strftime('%d/%m/%Y %H:%M:%S.%f')
-		statement = 'INSERT INTO TCP ' + \
-			'(Date, Source_IP, Dest_IP, Source_Port, Dest_Port, Sequence_Number, ACK_Number, Data) ' + \
-			'VALUES ('  + \
-			'"' + Date + '", ' + \
-			'"' + pkt[0] + '", ' + \
-			'"' + pkt[1] + '", ' + \
-			str(pkt[2]) + ', ' + \
-			str(pkt[3]) + ', ' + \
-			str(pkt[4]) + ', ' + \
-			str(pkt[5]) + ', ' + \
-			'"' + str(pkt[6]) + '"' + \
-			');'
+		statement = """INSERT INTO TCP (Date, Source_IP, Dest_IP, Source_Port, Dest_Port, Sequence_Number, ACK_Number, Data) VALUES (?,?,?,?,?,?,?,?)"""
+		variables = (Date, pkt[0],pkt[1], str(pkt[2]), str(pkt[3]), str(pkt[4]), str(pkt[5]), str(pkt[6]))
 		#print(statement)
 		#self.SQ.put('KILL')
-		Merc_Database.merc_database_execute(self, statement) 
+
+		#self.cursor.execute(statement, variables)
+		Merc_Database.merc_database_execute(self, statement, variables) 
 		Merc_Database.merc_database_commit(self)
 
 	# Insert UDP packets into the memory database
 	def merc_database_insert_UDP_packet_inMemory(self, pkt):
 
 		Date = datetime.now().strftime('%d/%m/%Y %H:%M:%S.%f')
-		statement = 'INSERT INTO UDP ' + \
-			'(Date, Source_IP, Dest_IP, Source_Port, Dest_Port, Data) ' + \
-			'VALUES ('  + \
-			'"' + Date + '", ' + \
-			'"' + pkt[0] + '", ' + \
-			'"' + pkt[1] + '", ' + \
-			str(pkt[2]) + ', ' + \
-			str(pkt[3]) + ', ' + \
-			'"' + pkt[4] + '"' + \
-			');'
+		statement = """INSERT INTO UDP (Date, Source_IP, Dest_IP, Source_Port, Dest_Port, Data) VALUES (?,?,?,?,?,?)"""
+		variables = (Date, pkt[0],pkt[1], str(pkt[2]), str(pkt[3]), str(pkt[4]))
 		#print(statement)
 		#self.SQ.put('KILL')
-		Merc_Database.merc_database_execute(self, statement) 
+		Merc_Database.merc_database_execute(self, statement, variables) 
 		Merc_Database.merc_database_commit(self)
 
 	# Insert ICMP packets into the memory database
 	def merc_database_insert_ICMP_packet_inMemory(self, pkt):
 		Date = datetime.now().strftime('%d/%m/%Y %H:%M:%S.%f')
-		statement = 'INSERT INTO ICMP ' + \
-			'(Date, Source_IP, Dest_IP, Type, Code) ' + \
-			'VALUES ('  + \
-			'"' + Date + '", ' + \
-			'"' + pkt[0] + '", ' + \
-			'"' + pkt[1] + '", ' + \
-			str(pkt[2]) + ', ' + \
-			str(pkt[3]) + \
-			');'
+		statement = """INSERT INTO ICMP (Date, Source_IP, Dest_IP, Type, Code) VALUES (?,?,?,?,?)"""
+		variables = (Date, pkt[0],pkt[1], str(pkt[2]), str(pkt[3]))
 		#print(statement)
 		#self.SQ.put('KILL')
-		Merc_Database.merc_database_execute(self, statement) 
+		Merc_Database.merc_database_execute(self, statement, variables) 
 		Merc_Database.merc_database_commit(self)
 
 	# Insert TCP packets into the memory database
@@ -131,7 +113,7 @@ class Merc_Database:
 			statement += ');'
 		#print(statement)
 		#self.SQ.put('KILL')
-		Merc_Database.merc_database_execute(self, statement) 
+		Merc_Database.merc_database_execute(self, statement, variables)
 		Merc_Database.merc_database_commit(self)
 
 	# Insert UDP packets into the memory database
@@ -153,7 +135,7 @@ class Merc_Database:
 			statement += ');'
 		#print(statement)
 		#self.SQ.put('KILL')
-		Merc_Database.merc_database_execute(self, statement) 
+		Merc_Database.merc_database_execute(self, statement, variables)
 		Merc_Database.merc_database_commit(self)
 
 	# Insert ICMP packets into the memory database
@@ -167,6 +149,6 @@ class Merc_Database:
 			');'
 		#print(statement)
 		#self.SQ.put('KILL')
-		Merc_Database.merc_database_execute(self, statement) 
+		Merc_Database.merc_database_execute(self, statement, variables)
 		Merc_Database.merc_database_commit(self)
 

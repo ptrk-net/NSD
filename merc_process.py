@@ -10,9 +10,8 @@ from merc_database import Merc_Database
 # Class to make the first packets classification based in the protocol
 class Merc_Process:
 
-	def __init__(self, counters, db, sync_queue):
+	def __init__(self, counters, sync_queue):
 		self.Counters = counters
-		self.DB = db
 		self.SQ = sync_queue
 
 	# Process Live packets
@@ -23,6 +22,7 @@ class Merc_Process:
 		raise NotImplementedError('developing IP..')
 
 	def merc_process_live_ICMP(self, queue):
+		self.DB = Merc_Database(True, self.SQ)
 		while True:
 			try:
 				packet = queue.get()
@@ -33,7 +33,7 @@ class Merc_Process:
 				Code = int.from_bytes(packet[35:36], byteorder='big')
 
 				#print([Date, Source_IP, Dest_IP, Type, Code])
-				self.DB.merc_database_insert_ICMP_packet_inMemory([Source_IP, Dest_IP, Type, Code])
+				self.DB.merc_database_insert_ICMP_packet([Source_IP, Dest_IP, Type, Code])
 
 				self.Counters.merc_counters_increment_processed_ICMP()
 			except KeyboardInterrupt:
@@ -48,6 +48,7 @@ class Merc_Process:
 		raise NotImplementedError('developing SCTP..')
 
 	def merc_process_live_TCP(self, queue):
+		self.DB = Merc_Database(True, self.SQ)
 		while True:
 			try:
 				packet = queue.get()
@@ -61,7 +62,7 @@ class Merc_Process:
 				Data = packet[54:].decode('unicode_escape').encode('utf-8')
 		
 				#print([Source_IP, Dest_IP, Source_Port, Dest_Port, Sequence_Number, ACK_Number, Data])
-				self.DB.merc_database_insert_TCP_packet_inMemory([Source_IP, Dest_IP, Source_Port, Dest_Port, Sequence_Number, ACK_Number, Data])
+				self.DB.merc_database_insert_TCP_packet([Source_IP, Dest_IP, Source_Port, Dest_Port, Sequence_Number, ACK_Number, Data])
 
 				self.Counters.merc_counters_increment_processed_TCP()
 			except UnicodeDecodeError as msg:
@@ -78,6 +79,7 @@ class Merc_Process:
 		raise NotImplementedError('developing PUP..')
 
 	def merc_process_live_UDP(self, queue):
+		self.DB = Merc_Database(True, self.SQ)
 		while True:
 			try:
 				packet = queue.get()
@@ -89,7 +91,7 @@ class Merc_Process:
 				Data = packet[42:].decode('unicode_escape').encode('utf-8')
 
 				#print([Date, Source_IP, Dest_IP, Source_Port, Dest_Port, Data])
-				self.DB.merc_database_insert_UDP_packet_inMemory([Source_IP, Dest_IP, Source_Port, Dest_Port, Data])
+				self.DB.merc_database_insert_UDP_packet([Source_IP, Dest_IP, Source_Port, Dest_Port, Data])
 
 				self.Counters.merc_counters_increment_processed_UDP()
 			except UnicodeDecodeError as msg:
@@ -163,7 +165,7 @@ class Merc_Process:
 				Code = int.from_bytes(packet[35:36], byteorder='big')
 
 				#print([Date, Source_IP, Dest_IP, Type, Code])
-				self.DB.merc_database_insert_ICMP_packet_inMemory([Source_IP, Dest_IP, Type, Code])
+				self.DB.merc_database_insert_ICMP_packet([Source_IP, Dest_IP, Type, Code])
 
 				self.Counters.merc_counters_increment_processed_ICMP()
 			except KeyboardInterrupt:
@@ -207,7 +209,7 @@ class Merc_Process:
 				Data = str(packet[42:])
 
 				#print([Date, Source_IP, Dest_IP, Source_Port, Dest_Port, Data])
-				self.DB.merc_database_insert_UDP_packet_inMemory([Source_IP, Dest_IP, Source_Port, Dest_Port, Data])
+				self.DB.merc_database_insert_UDP_packet([Source_IP, Dest_IP, Source_Port, Dest_Port, Data])
 
 				self.Counters.merc_counters_increment_processed_UDP()
 			except KeyboardInterrupt:

@@ -27,8 +27,7 @@ if __name__ == '__main__':
 	Pkts_Queue = Merc_Packets_Queue()
 	Mon_Proc = Merc_Monitor(Counters, Mon_Pipe_Child)
 	Net_Proc = Merc_Network('ens32', Counters, Pkts_Queue, Sync_Queue)
-	Mem_DB = Merc_Database(True, Sync_Queue)
-	Pkts_Proc = Merc_Process(Counters, Mem_DB, Sync_Queue)
+	Pkts_Proc = Merc_Process(Counters, Sync_Queue)
 
 	# Create the monitor process
 	Mon_P = Process(target=Mon_Proc.merc_monitor_process, args=())
@@ -59,7 +58,6 @@ if __name__ == '__main__':
 		Procs.append(ICMP_PP)
 
 	# Create the AI process
-
 
 	# Create the network process
 	print('Starting Network process..')

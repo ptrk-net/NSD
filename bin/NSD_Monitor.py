@@ -1,11 +1,11 @@
 # system libraries
 import time
 
-# Merc modules
+# NSD modules
 
 
 # Class to monitor the app
-class Merc_Monitor:
+class NSD_Monitor:
 
 	# init method
 	def __init__(self, counters, pipe):

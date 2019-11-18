@@ -1,31 +1,28 @@
 # import system libraries
-#import re
-#import time
 import sys
 from multiprocessing import Process, Queue, Pipe
 
-# import Merc libraries
-from merc_network import Merc_Network
-from merc_database import Merc_Database
-from merc_packets_queue import Merc_Packets_Queue
-from merc_process import Merc_Process
-from merc_counters import Merc_Counters
-from merc_monitor import Merc_Monitor
+# import NSD libraries
+from bin.NSD_Network import NSD_Network
+from bin.NSD_Packets_Queue import NSD_Packets_Queue
+from bin.NSD_Process import NSD_Process
+from bin.NSD_Counters import NSD_Counters
+from bin.NSD_Monitor import NSD_Monitor
 
-import merc_settings as cfg
+from conf import settings as cfg
 
 # Main
 if __name__ == '__main__':
 
 	# Create de variables
 	Procs = []
-	Counters = Merc_Counters()
+	Counters = NSD_Counters()
 	Mon_Pipe_Parent, Mon_Pipe_Child = Pipe()
 	Sync_Queue = Queue()
-	Pkts_Queue = Merc_Packets_Queue()
-	Mon_Proc = Merc_Monitor(Counters, Mon_Pipe_Child)
-	Net_Proc = Merc_Network(cfg.NETWORK_INTERFACE, Counters, Pkts_Queue, Sync_Queue)
-	Pkts_Proc = Merc_Process(cfg.TEMPORAL_DB_SERVER, cfg.TEMPORAL_DB_PORT, Counters, Sync_Queue)
+	Pkts_Queue = NSD_Packets_Queue()
+	Mon_Proc = NSD_Monitor(Counters, Mon_Pipe_Child)
+	Net_Proc = NSD_Network(cfg.NETWORK_INTERFACE, Counters, Pkts_Queue, Sync_Queue, cfg.PROTOCOLS_FILE)
+	Pkts_Proc = NSD_Process(cfg.TEMPORAL_DB_SERVER, cfg.TEMPORAL_DB_PORT, Counters, Sync_Queue)
 
 	# Create the monitor process
 	Mon_P = Process(target=Mon_Proc.merc_monitor_process, args=())
@@ -36,21 +33,21 @@ if __name__ == '__main__':
 	# Create the process to process the packets based in the protocol
 	for i in range(0, cfg.TCP_NUMBER_PROCESS):
 		print('Starting ' + str(i) + ' TCP process..')
-		TCP_PP = Process(target=Pkts_Proc.merc_process_live_TCP, args=(Pkts_Queue.TCP_Queue,))
+		TCP_PP = Process(target=Pkts_Proc.NSD_Process_live_TCP, args=(Pkts_Queue.TCP_Queue,))
 		TCP_PP.daemon = True
 		TCP_PP.start()
 		Procs.append(TCP_PP)
 
 	for i in range(0, cfg.UDP_NUMBER_PROCESS):
 		print('Starting ' + str(i) + ' UDP process..')
-		UDP_PP = Process(target=Pkts_Proc.merc_process_live_UDP, args=(Pkts_Queue.UDP_Queue,))
+		UDP_PP = Process(target=Pkts_Proc.NSD_Process_live_UDP, args=(Pkts_Queue.UDP_Queue,))
 		UDP_PP.daemon = True
 		UDP_PP.start()
 		Procs.append(UDP_PP)
 
 	for i in range(0, cfg.ICMP_NUMBER_PROCESS):
 		print('Starting ' + str(i) + ' ICMP process..')
-		ICMP_PP = Process(target=Pkts_Proc.merc_process_live_ICMP, args=(Pkts_Queue.ICMP_Queue,))
+		ICMP_PP = Process(target=Pkts_Proc.NSD_Process_live_ICMP, args=(Pkts_Queue.ICMP_Queue,))
 		ICMP_PP.daemon = True
 		ICMP_PP.start()
 		Procs.append(ICMP_PP)
@@ -59,7 +56,7 @@ if __name__ == '__main__':
 
 	# Create the network process
 	print('Starting Network process..')
-	NP = Process(target=Net_Proc.merc_network_rcv, args=())
+	NP = Process(target=Net_Proc.NSD_Network_rcv, args=())
 	NP.daemon = True
 	NP.start()
 	Procs.append(NP)

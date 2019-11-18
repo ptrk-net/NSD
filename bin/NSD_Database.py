@@ -3,7 +3,7 @@ from pymongo import MongoClient
 from datetime import datetime
 
 # Class to manage the app's db
-class Merc_Database:
+class NSD_Database:
 	
 	# Init method
 	def __init__(self, db_server, db_port, sync_queue):

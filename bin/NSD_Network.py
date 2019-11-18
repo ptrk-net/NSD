@@ -4,10 +4,10 @@ import socket
 
 
 # Class to process network packets
-class Merc_Network:
+class NSD_Network:
 
     # Init method
-    def __init__(self, interface, counters, pkts_queue, sync_queue):
+    def __init__(self, interface, counters, pkts_queue, sync_queue, protocols_file):
         self.iface = interface
         self.Counters = counters
         self.PQ = pkts_queue
@@ -16,7 +16,7 @@ class Merc_Network:
         # self.Protocols_Table = {num:[name[8:],0] for name,num in vars(socket).items() if name.startswith("IPPROTO")}
 
         try:
-            prot_file = open('Protocols', 'r')
+            prot_file = open(protocols_file, 'r')
         except IOError as e:
             print('I/O error: ' + str(e.errno) + str(e.strerror))
             return
@@ -46,7 +46,7 @@ class Merc_Network:
             self.SQ.put('KILL')
 
     # Listen to the network
-    def merc_network_rcv(self):
+    def NSD_Network_rcv(self):
         while True:
             try:
                 packet = self.sock.recv(65565)
@@ -67,8 +67,8 @@ class Merc_Network:
             except KeyboardInterrupt:
                 print('Closing socket..')
                 self.sock.close()
-    # self.merc_network_process_packet(packet)
+    # self.NSD_Network_process_packet(packet)
 
 # Get packet counter for a protocol
-# def merc_network_packet_counter(self, protocol):
+# def NSD_Network_packet_counter(self, protocol):
 #	return self.Protocols_Table[socket.getprotobyname(protocol)][1]

@@ -2,7 +2,7 @@
 #import re
 #import time
 import sys
-from multiprocessing import Process,Queue,Pipe
+from multiprocessing import Process, Queue, Pipe
 
 # import Merc libraries
 from merc_network import Merc_Network
@@ -12,9 +12,7 @@ from merc_process import Merc_Process
 from merc_counters import Merc_Counters
 from merc_monitor import Merc_Monitor
 
-TCP_NUMBER_PROCESS = 10
-UDP_NUMBER_PROCESS = 2
-ICMP_NUMBER_PROCESS = 1
+import merc_settings as cfg
 
 # Main
 if __name__ == '__main__':
@@ -26,8 +24,8 @@ if __name__ == '__main__':
 	Sync_Queue = Queue()
 	Pkts_Queue = Merc_Packets_Queue()
 	Mon_Proc = Merc_Monitor(Counters, Mon_Pipe_Child)
-	Net_Proc = Merc_Network('ens32', Counters, Pkts_Queue, Sync_Queue)
-	Pkts_Proc = Merc_Process(Counters, Sync_Queue)
+	Net_Proc = Merc_Network(cfg.NETWORK_INTERFACE, Counters, Pkts_Queue, Sync_Queue)
+	Pkts_Proc = Merc_Process(cfg.TEMPORAL_DB_SERVER, cfg.TEMPORAL_DB_PORT, Counters, Sync_Queue)
 
 	# Create the monitor process
 	Mon_P = Process(target=Mon_Proc.merc_monitor_process, args=())
@@ -36,21 +34,21 @@ if __name__ == '__main__':
 	Procs.append(Mon_P)
 
 	# Create the process to process the packets based in the protocol
-	for i in range(0, TCP_NUMBER_PROCESS):
+	for i in range(0, cfg.TCP_NUMBER_PROCESS):
 		print('Starting ' + str(i) + ' TCP process..')
 		TCP_PP = Process(target=Pkts_Proc.merc_process_live_TCP, args=(Pkts_Queue.TCP_Queue,))
 		TCP_PP.daemon = True
 		TCP_PP.start()
 		Procs.append(TCP_PP)
 
-	for i in range(0, UDP_NUMBER_PROCESS):
+	for i in range(0, cfg.UDP_NUMBER_PROCESS):
 		print('Starting ' + str(i) + ' UDP process..')
 		UDP_PP = Process(target=Pkts_Proc.merc_process_live_UDP, args=(Pkts_Queue.UDP_Queue,))
 		UDP_PP.daemon = True
 		UDP_PP.start()
 		Procs.append(UDP_PP)
 
-	for i in range(0, ICMP_NUMBER_PROCESS):
+	for i in range(0, cfg.ICMP_NUMBER_PROCESS):
 		print('Starting ' + str(i) + ' ICMP process..')
 		ICMP_PP = Process(target=Pkts_Proc.merc_process_live_ICMP, args=(Pkts_Queue.ICMP_Queue,))
 		ICMP_PP.daemon = True

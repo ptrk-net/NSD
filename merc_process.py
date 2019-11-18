@@ -10,7 +10,9 @@ from merc_database import Merc_Database
 # Class to make the first packets classification based in the protocol
 class Merc_Process:
 
-	def __init__(self, counters, sync_queue):
+	def __init__(self, db_server, db_port, counters, sync_queue):
+		#self.DB = Merc_Database(True, self.SQ)   # SQLite3
+		self.DB = Merc_Database(db_server, db_port, self.SQ)      # MongoDB
 		self.Counters = counters
 		self.SQ = sync_queue
 
@@ -22,7 +24,6 @@ class Merc_Process:
 		raise NotImplementedError('developing IP..')
 
 	def merc_process_live_ICMP(self, queue):
-		self.DB = Merc_Database(True, self.SQ)
 		while True:
 			try:
 				packet = queue.get()
@@ -48,7 +49,6 @@ class Merc_Process:
 		raise NotImplementedError('developing SCTP..')
 
 	def merc_process_live_TCP(self, queue):
-		self.DB = Merc_Database(True, self.SQ)
 		while True:
 			try:
 				packet = queue.get()
@@ -79,7 +79,6 @@ class Merc_Process:
 		raise NotImplementedError('developing PUP..')
 
 	def merc_process_live_UDP(self, queue):
-		self.DB = Merc_Database(True, self.SQ)
 		while True:
 			try:
 				packet = queue.get()

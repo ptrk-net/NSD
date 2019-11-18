@@ -1,15 +1,14 @@
 # system libraries
 from pymongo import MongoClient
-import sys
 from datetime import datetime
 
 # Class to manage the app's db
 class Merc_Database:
 	
 	# Init method
-	def __init__(self, memory, sync_queue):
+	def __init__(self, db_server, db_port, sync_queue):
 		self.SQ = sync_queue
-		self.client = MongoClient('mongodb://127.0.0.1:27017')
+		self.client = MongoClient(db_server, db_port)
 		self.db = self.client.Merc_DB
 		#try:
 		#except Error as error:

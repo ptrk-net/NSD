@@ -1,15 +1,20 @@
-# system libraries
+# Database class
+
+# Imports python libraries
 from pymongo import MongoClient
 from datetime import datetime
+import logging
+
 
 # Class to manage the app's db
 class NSD_Database:
 	
 	# Init method
 	def __init__(self, db_server, db_port, sync_queue):
+		self.logger = logging.getLogger(__name__)
 		self.SQ = sync_queue
 		self.client = MongoClient(db_server, db_port)
-		self.db = self.client.Merc_DB
+		self.db = self.client.NSD_database
 		#try:
 		#except Error as error:
 		#	print('Error creating database: ' + error.args[0])
@@ -17,7 +22,7 @@ class NSD_Database:
 		#	sys.exit()
 
 	# Insert TCP packets into the memory database
-	def merc_database_insert_TCP_packet(self, pkt):
+	def NSD_Database_insert_TCP_packet(self, pkt):
 		self.db.TCP.insert_one(
 			{
 				'Date': datetime.now().strftime('%d/%m/%Y %H:%M:%S.%f'),
@@ -32,7 +37,7 @@ class NSD_Database:
 		)
 
 	# Insert UDP packets into the memory database
-	def merc_database_insert_UDP_packet(self, pkt):
+	def NSD_Database_insert_UDP_packet(self, pkt):
 		self.db.UDP.insert_one(
 			{
 				'Date': datetime.now().strftime('%d/%m/%Y %H:%M:%S.%f'),
@@ -45,7 +50,7 @@ class NSD_Database:
 		)
 
 	# Insert ICMP packets into the memory database
-	def merc_database_insert_ICMP_packet(self, pkt):
+	def NSD_Database_insert_ICMP_packet(self, pkt):
 		self.db.UDP.insert_one(
 			{
 				'Date': datetime.now().strftime('%d/%m/%Y %H:%M:%S.%f'),

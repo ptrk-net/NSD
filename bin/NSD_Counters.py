@@ -1,9 +1,12 @@
-# system libraries
+# Class to count the packets received and processed
+
+# Imports python libraries
 from multiprocessing import Value, Lock
+import logging
 
 class NSD_Counters:
 	def __init__(self, initial_value = 0):
-
+		self.logger = logging.getLogger(__name__)
 		self.lock = Lock()
 
 		self.Received_Counter_HOPOPTS = Value('i', initial_value)

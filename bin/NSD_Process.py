@@ -1,15 +1,18 @@
-# import system libraries
-import socket
+# Class to process the packets
 
-# import NSD libraries
-#from NSD_Packets_queue import Merc_Packets_Queue
+# Import python libraries
+import socket
+import logging
+
+# Import NSD libraries
 from bin.NSD_Database import NSD_Database
+
 
 # Class to make the first packets classification based in the protocol
 class NSD_Process:
 
 	def __init__(self, db_server, db_port, counters, sync_queue):
-		#self.DB = Merc_Database(True, self.SQ)   # SQLite3
+		self.logger = logging.getLogger(__name__)
 		self.DB = NSD_Database(db_server, db_port, self.SQ)      # MongoDB
 		self.Counters = counters
 		self.SQ = sync_queue

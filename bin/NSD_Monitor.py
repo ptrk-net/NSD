@@ -18,12 +18,12 @@ class NSD_Monitor:
 	# monitor process
 	def NSD_Monitor_process(self):
 		while True:
-			TCP_received_packets = self.Counters.merc_counters_get_received_TCP()
-			UDP_received_packets = self.Counters.merc_counters_get_received_UDP()
-			ICMP_received_packets = self.Counters.merc_counters_get_received_ICMP()
-			TCP_processed_packets = self.Counters.merc_counters_get_received_TCP()
-			UDP_processed_packets = self.Counters.merc_counters_get_received_UDP()
-			ICMP_processed_packets = self.Counters.merc_counters_get_received_ICMP()
+			TCP_received_packets = self.Counters.NSD_Counters_get_received_TCP()
+			UDP_received_packets = self.Counters.NSD_Counters_get_received_UDP()
+			ICMP_received_packets = self.Counters.NSD_Counters_get_received_ICMP()
+			TCP_processed_packets = self.Counters.NSD_Counters_get_received_TCP()
+			UDP_processed_packets = self.Counters.NSD_Counters_get_received_UDP()
+			ICMP_processed_packets = self.Counters.NSD_Counters_get_received_ICMP()
 
 			self.logger.info('\n\n--- PACKET PROCESS REPORT ---')
 			self.logger.info('- TCP')

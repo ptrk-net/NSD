@@ -33,6 +33,7 @@ class NSD_Counters:
 		self.Received_Counter_NONE = Value('i', initial_value)
 		self.Received_Counter_DSTOPTS = Value('i', initial_value)
 		self.Received_Counter_RAW = Value('i', initial_value)
+		self.Received_Counter_SSCOPMCE = Value('i', initial_value)
 
 		self.Processed_Counter_HOPOPTS = Value('i', initial_value)
 		self.Processed_Counter_IP = Value('i', initial_value)
@@ -58,6 +59,7 @@ class NSD_Counters:
 		self.Processed_Counter_NONE = Value('i', initial_value)
 		self.Processed_Counter_DSTOPTS = Value('i', initial_value)
 		self.Processed_Counter_RAW = Value('i', initial_value)
+		self.Processed_Counter_SSCOPMCE = Value('i', initial_value)
 
 
 	# Process
@@ -125,6 +127,10 @@ class NSD_Counters:
 		with self.lock:
 			self.Received_Counter_FRAGMENT.value += 1
 
+	def NSD_Counters_increment_received_SSCOPMCE(self):
+		with self.lock:
+			self.Received_Counter_SSCOPMCE.value += 1
+
 	def NSD_Counters_increment_processed_HOPOPTS(self):
 		with self.lock:
 			self.Processed_Counter_HOPOPTS.value += 1
@@ -188,6 +194,10 @@ class NSD_Counters:
 	def NSD_Counters_increment_processed_FRAGMENT(self):
 		with self.lock:
 			self.Processed_Counter_FRAGMENT.value += 1
+
+	def NSD_Counters_increment_processed_SSCOPMCE(self):
+		with self.lock:
+			self.Processed_Counter_SSCOPMCE.value += 1
 
 	# Get counters
 	def NSD_Counters_get_received_HOPOPTS(self):
@@ -258,6 +268,10 @@ class NSD_Counters:
 		with self.lock:
 			return self.Received_Counter_RSVP.value
 
+	def NSD_Counters_get_received_SSCOPMCE(self):
+		with self.lock:
+			return self.Received_Counter_SSCOPMCE.value
+
 	def NSD_Counters_get_processed_HOPOPTS(self):
 		with self.lock:
 			return self.Processed_Counter_HOPOPTS.value
@@ -325,5 +339,9 @@ class NSD_Counters:
 	def NSD_Counters_get_processed_RSVP(self):
 		with self.lock:
 			return self.Processed_Counter_RSVP.value
+
+	def NSD_Counters_get_processed_SSCOPMCE(self):
+		with self.lock:
+			return self.Processed_Counter_SSCOPMCE.value
 
 

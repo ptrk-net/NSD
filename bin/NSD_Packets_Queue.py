@@ -87,3 +87,6 @@ class NSD_Packets_Queue:
 
     def NSD_Packets_Queue_insert_RAW(self, packet):
         raise NotImplementedError('developing RAW..')
+
+    def NSD_Packets_Queue_insert_SSCOPMCE(self, packet):
+        raise NotImplementedError('developing SSCOPMCE..')

@@ -8,7 +8,7 @@ from os import path, remove
 from conf import settings as cfg
 from .NSD_Counters import NSD_Counters
 from .NSD_Database import NSD_Database
-from .NSD_Main import NSD_Main
+from .NSD_Init import NSD_Init
 from .NSD_Monitor import NSD_Monitor
 from .NSD_Network import NSD_Network
 from .NSD_Packets_Queue import NSD_Packets_Queue
@@ -24,17 +24,25 @@ if path.isfile(cfg.LOGGING_FILE):
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
-# Create the Handler for logging data to a file
-logger_handler = logging.FileHandler(cfg.LOGGING_FILE)
-logger_handler.setLevel(logging.DEBUG)
-
 # Create a Formatter for formatting the log messages
 logger_formatter = logging.Formatter(cfg.LOGGING_FORMAT)
 
-# Add the Formatter to the Handler
-logger_handler.setFormatter(logger_formatter)
+# Create the Handler for logging data to a file
+logger_fh = logging.FileHandler(cfg.LOGGING_FILE)
+logger_fh.setLevel(logging.DEBUG)
 
-# Add the Handler to the Logger
-logger.addHandler(logger_handler)
+# Add the Formatter to the Handler
+logger_fh.setFormatter(logger_formatter)
+
+# Create the Handler for logging data to console
+logger_sh = logging.StreamHandler()
+logger_sh.setLevel(logging.DEBUG)
+
+# Add the Formatter to the Handler
+logger_sh.setFormatter(logger_formatter)
+
+# Add the Handlers to the Logger
+logger.addHandler(logger_fh)
+logger.addHandler(logger_sh)
 logger.info('Completed configuring logger()!')
 

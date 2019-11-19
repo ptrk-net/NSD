@@ -11,16 +11,23 @@ from bin.NSD_Packets_Queue import NSD_Packets_Queue
 from bin.NSD_Process import NSD_Process
 from bin.NSD_Counters import NSD_Counters
 from bin.NSD_Monitor import NSD_Monitor
+from bin.NSD_Pcap import NSD_Pcap
 
 from conf import settings as cfg
 
 
 # Main
-class NSD_Main:
+class NSD_Init:
 
+    # Init function
     def __init__(self, daemon, pcap_file):
         # Create the variables
         self.logger = logging.getLogger(__name__)
+        if daemon:
+            self.logger.info('Starting as daemon..')
+        else:
+            self.logger.info('Preparing for analyze a PCAP file..')
+
         self.Procs = []
         self.Counters = NSD_Counters()
         self.Mon_Pipe_Parent, Mon_Pipe_Child = Pipe()
@@ -33,17 +40,18 @@ class NSD_Main:
             self.Net_Proc = NSD_Network(cfg.NETWORK_INTERFACE, self.Counters, self.Pkts_Queue, self.Sync_Queue,
                                     cfg.PROTOCOLS_FILE)
         else:
-            self.Pcap_Proc = NSD_Pcap()
+            self.Pcap_Proc = NSD_Pcap(pcap_file, self.Counters, self.Pkts_Queue, self.Sync_Queue, cfg.PROTOCOLS_FILE)
 
+    # Create the environment necessary to work
+    def NSD_Init_startup(self):
 
-    def NSD_main_startup(self):
         # Create the monitor process
-
         self.logger.info('Starting up the monitor process...')
-        Mon_P = Process(target=self.Mon_Proc.merc_monitor_process, args=())
+        Mon_P = Process(target=self.Mon_Proc.NSD_Monitor_process, args=())
         Mon_P.daemon = True
         Mon_P.start()
         self.Procs.append(Mon_P)
+        self.logger.info('Monitor started!')
 
         # Create the process to process the packets based in the protocol
         self.logger.info('Starting up the TCP processing process...')
@@ -53,6 +61,7 @@ class NSD_Main:
             TCP_PP.daemon = True
             TCP_PP.start()
             self.Procs.append(TCP_PP)
+        self.logger.info('TCP processing started!')
 
         self.logger.info('Starting up the UDP processing process...')
         for i in range(0, cfg.UDP_NUMBER_PROCESS):
@@ -61,6 +70,7 @@ class NSD_Main:
             UDP_PP.daemon = True
             UDP_PP.start()
             self.Procs.append(UDP_PP)
+        self.logger.info('UDP processing started!')
 
         self.logger.info('Starting up the ICMP processing process...')
         for i in range(0, cfg.ICMP_NUMBER_PROCESS):
@@ -69,24 +79,29 @@ class NSD_Main:
             ICMP_PP.daemon = True
             ICMP_PP.start()
             self.Procs.append(ICMP_PP)
+        self.logger.info('ICMP processing started!')
 
         # Create the AI process
+        self.logger.info('Implementing AI process..')
 
+    # Start as daemon
+    def NSD_Init_daemon(self):
         # Create the network process
         self.logger.info('Starting up the network process...')
         NP = Process(target=self.Net_Proc.NSD_Network_rcv, args=())
         NP.daemon = True
         NP.start()
         self.Procs.append(NP)
+        self.logger.info('Network started!')
 
-    def NSD_Main_daemon(self):
         while True:
             [protocol, value] = self.Mon_Pipe_Parent.recv()
             self.logger.warning(protocol + ' protocol needs ' + str(value) + 'process more!')
             sys.exit()
 
-    def NSD_Main_read_pcap(self):
-        raise NotImplementedError('Implementing..')
+    # Start to analyze a PCAP file
+    def NSD_Init_analyze_pcap(self):
+            self.Pcap_Proc.NSD_Pcap_process()
 
 # Link all the process with main
 # for proc in Procs:

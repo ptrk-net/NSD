@@ -118,18 +118,18 @@
 122:0x7A:SM:SM
 123:0x7B:PTP:Performance Transparency Protocol
 124:0x7C:IS-IS: sobre IPv4
-125:0x7D:FIRE
+125:0x7D:FIRE:
 126:0x7E:CRTP:Combat Radio Transport Protocol
 127:0x7F:CRUDP:Combat Radio User Datagram
-128:0x80:SSCOPMCE
-129:0x81:IPLT
+128:0x80:SSCOPMCE:
+129:0x81:IPLT:
 130:0x82:SPS:Secure Packet Shield
 131:0x83:PIPE:Private IP Encapsulation within IP
 132:0x84:SCTP:Stream Control Transmission Protocol
 133:0x85:FC:Fibre Channel
 134:0x86:RSVP-E2E-IGNORE
-136:0x88:UDP-Lite
-137:0x89:MPLS-en-IP
+136:0x88:UDP-Lite:
+137:0x89:MPLS-en-IP:
 138:0x8A:manet:Protocolos MANET
 139:0x8B:HIP:Host Identity Protocol
 140:0x8C:Shim6:Site Multihoming by IPv6 Intermediation

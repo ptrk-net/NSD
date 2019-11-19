@@ -18,9 +18,10 @@ class NSD_Pcap:
 
         self.logger.info('Reading pcap..')
         try:
-            self.file = dpkt.pcap.Reader(open(pcap_file, 'r'))
+            self.file = dpkt.pcap.Reader(open(pcap_file, 'rb'))
         finally:
             self.logger.error('Error reading the pcap file {0}'.format(pcap_file))
+        self.logger.info('PCAP file parsed!')
 
         self.logger.info('Reading protocols..')
         try:
@@ -31,19 +32,20 @@ class NSD_Pcap:
             prot_file.close()
         except IOError as e:
             raise IOError('I/O error: ' + str(e.errno) + str(e.strerror))
+        self.logger.info('Protocols parsed!')
 
     # Process packets
     def NSD_Pcap_process(self):
         for ts, pkt in self.file:
             try:
                 prot = int.from_bytes(pkt[23:24], byteorder='big')
-                getattr(self.PQ, 'NSD_Packets_queue_insert_' + self.Protocols_Table[prot])(pkt)
+                getattr(self.PQ, 'NSD_Packets_Queue_insert_' + self.Protocols_Table[prot])(pkt)
                 getattr(self.Counters, 'NSD_Counters_increment_received_' + self.Protocols_Table[prot])()
             except AttributeError as msg:
                 self.logger.error('Not Implemented Error: ' + str(msg))
             except NotImplementedError as msg:
                 self.logger.error('Not Implemented Error: ' + str(msg))
-                self.SQ.put('KILL')
+                #self.SQ.put('KILL')
             except KeyError as msg:
                 self.logger.error('No protocol found: ' + str(prot) + '--> ' + str(pkt))
             except KeyboardInterrupt:

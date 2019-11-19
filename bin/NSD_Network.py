@@ -28,6 +28,7 @@ class NSD_Network:
             prot_file.close()
         except IOError as e:
             raise IOError('I/O error: ' + str(e.errno) + str(e.strerror))
+        self.logger.info('Protocols parsed!')
 
         # self.Protocols_Table = {num:name[8:] for name,num in vars(socket).items() if name.startswith("IPPROTO")}
         # i=0
@@ -46,6 +47,7 @@ class NSD_Network:
         except socket.error as msg:
             self.logger.error("Socket could not be created.\nError: {0} - {1}".format(str(msg[0]), str(msg[1])))
             self.SQ.put('KILL')
+        self.logger.info('Socket open!')
 
     # Listen to the network
     def NSD_Network_rcv(self):
@@ -55,7 +57,7 @@ class NSD_Network:
                 packet = self.sock.recv(65565)
                 prot = int.from_bytes(packet[23:24], byteorder='big')
                 # self.logger.info('Protocol: ' + str(prot) + ' --> ' + self.Protocols_Table[prot])
-                getattr(self.PQ, 'NSD_Packets_queue_insert_' + self.Protocols_Table[prot])(packet)
+                getattr(self.PQ, 'NSD_Packets_Queue_insert_' + self.Protocols_Table[prot])(packet)
                 getattr(self.Counters, 'NSD_Counters_increment_received_' + self.Protocols_Table[prot])()
             except AttributeError as msg:
                 self.logger.error('Not Implemented Error: ' + str(msg))

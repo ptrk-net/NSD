@@ -1,0 +1,52 @@
+2019-11-19 23:54:22,970 - bin - INFO - Completed configuring logger()!
+2019-11-19 23:54:22,971 - bin.NSD_Init - INFO - Preparing for analyze a PCAP file..
+2019-11-19 23:54:22,984 - bin.NSD_Pcap - INFO - Reading pcap..
+2019-11-19 23:54:22,984 - bin.NSD_Pcap - ERROR - Error reading the pcap file /home/patrik/Desktop/test_NSD.pcap
+2019-11-19 23:54:22,984 - bin.NSD_Pcap - INFO - PCAP file parsed!
+2019-11-19 23:54:22,985 - bin.NSD_Pcap - INFO - Reading protocols..
+2019-11-19 23:54:22,985 - bin.NSD_Pcap - INFO - Protocols parsed!
+2019-11-19 23:54:22,985 - bin.NSD_Init - INFO - Starting up the monitor process...
+2019-11-19 23:54:22,987 - bin.NSD_Init - INFO - Monitor started!
+2019-11-19 23:54:22,987 - bin.NSD_Init - INFO - Starting up the TCP processing process...
+2019-11-19 23:54:22,988 - bin.NSD_Monitor - INFO - 
+
+--- PACKET PROCESS REPORT ---
+2019-11-19 23:54:22,988 - bin.NSD_Monitor - INFO - - TCP
+2019-11-19 23:54:22,988 - bin.NSD_Monitor - INFO - -- Received: 0
+2019-11-19 23:54:22,988 - bin.NSD_Monitor - INFO - -- Processed: 0
+2019-11-19 23:54:22,988 - bin.NSD_Monitor - INFO - - UDP
+2019-11-19 23:54:22,989 - bin.NSD_Monitor - INFO - -- Received: 0
+2019-11-19 23:54:22,989 - bin.NSD_Monitor - INFO - -- Processed: 0
+2019-11-19 23:54:22,989 - bin.NSD_Monitor - INFO - - ICMP
+2019-11-19 23:54:22,989 - bin.NSD_Monitor - INFO - -- Received: 0
+2019-11-19 23:54:22,989 - bin.NSD_Monitor - INFO - -- Processed: 0
+2019-11-19 23:54:23,003 - bin.NSD_Init - INFO - TCP processing started!
+2019-11-19 23:54:23,004 - bin.NSD_Init - INFO - Starting up the UDP processing process...
+2019-11-19 23:54:23,009 - bin.NSD_Init - INFO - UDP processing started!
+2019-11-19 23:54:23,009 - bin.NSD_Init - INFO - Starting up the ICMP processing process...
+2019-11-19 23:54:23,011 - bin.NSD_Init - INFO - ICMP processing started!
+2019-11-19 23:54:23,011 - bin.NSD_Init - INFO - Implementing AI process..
+2019-11-19 23:54:23,012 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
+2019-11-19 23:54:23,012 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing HOPOPT..
+2019-11-19 23:54:23,013 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing HOPOPT..
+2019-11-19 23:54:23,013 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing HOPOPT..
+2019-11-19 23:54:23,013 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing IGMP..
+2019-11-19 23:54:23,013 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
+2019-11-19 23:54:23,014 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
+2019-11-19 23:54:23,014 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
+2019-11-19 23:54:23,014 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
+2019-11-19 23:54:23,014 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
+2019-11-19 23:54:23,014 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
+2019-11-19 23:54:23,014 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
+2019-11-19 23:54:23,014 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
+2019-11-19 23:54:23,015 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing IGMP..
+2019-11-19 23:54:23,015 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
+2019-11-19 23:54:23,074 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
+2019-11-19 23:54:23,079 - bin.NSD_Pcap - ERROR - No protocol found: 156--> b'\xff\xff\xff\xff\xff\xff\xa8\x9c\xedl\x8e\x9b\x08\x06\x00\x01\x08\x00\x06\x04\x00\x01\xa8\x9c\xedl\x8e\x9b\xc0\xa8\x16\x96\x00\x00\x00\x00\x00\x00\xc0\xa8\x16\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+2019-11-19 23:54:23,082 - bin.NSD_Pcap - ERROR - No protocol found: 151--> b'\xff\xff\xff\xff\xff\xff\x98\x97\xd1\xa8j\x81\x08\x06\x00\x01\x08\x00\x06\x04\x00\x01\x98\x97\xd1\xa8j\x81\xc0\xa8\x16\x01\x00\x00\x00\x00\x00\x00\xc0\xa8\x16\x96'
+2019-11-19 23:54:23,082 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
+2019-11-19 23:54:23,085 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
+2019-11-19 23:54:23,086 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
+2019-11-19 23:54:23,089 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
+2019-11-19 23:54:23,089 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
+2019-11-19 23:54:23,099 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..

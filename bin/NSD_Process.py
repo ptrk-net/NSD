@@ -13,9 +13,9 @@ class NSD_Process:
 
 	def __init__(self, db_server, db_port, counters, sync_queue):
 		self.logger = logging.getLogger(__name__)
-		self.DB = NSD_Database(db_server, db_port, self.SQ)      # MongoDB
 		self.Counters = counters
 		self.SQ = sync_queue
+		self.DB = NSD_Database(db_server, db_port, self.SQ)      # MongoDB
 
 	# Process Live packets
 	def NSD_Process_live_HOPOPTS(self, queue):
@@ -34,7 +34,6 @@ class NSD_Process:
 				Type = int.from_bytes(packet[34:35], byteorder='big')
 				Code = int.from_bytes(packet[35:36], byteorder='big')
 
-				#print([Date, Source_IP, Dest_IP, Type, Code])
 				self.DB.NSD_Database_insert_ICMP_packet([Source_IP, Dest_IP, Type, Code])
 
 				self.Counters.NSD_Counters_increment_processed_ICMP()

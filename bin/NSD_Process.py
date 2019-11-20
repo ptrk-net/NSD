@@ -11,11 +11,16 @@ from bin.NSD_Database import NSD_Database
 # Class to make the first packets classification based in the protocol
 class NSD_Process:
 
-	def __init__(self, db_server, db_port, counters, sync_queue):
+	def __init__(self, log_level, db_server, db_port, counters, sync_queue):
+		self.log_level = log_level
 		self.logger = logging.getLogger(__name__)
 		self.Counters = counters
 		self.SQ = sync_queue
-		self.DB = NSD_Database(db_server, db_port, self.SQ)      # MongoDB
+		self.db_server = db_server
+		self.db_port = db_port
+
+	def NSD_Process_fork_database(self):
+		self.DB = NSD_Database(self.log_level, self.db_server, self.db_port, self.SQ)      # MongoDB
 
 	# Process Live packets
 	def NSD_Process_live_HOPOPTS(self, queue):
@@ -25,6 +30,7 @@ class NSD_Process:
 		raise NotImplementedError('developing IP..')
 
 	def NSD_Process_live_ICMP(self, queue):
+		self.NSD_Process_fork_database()
 		while True:
 			try:
 				packet = queue.get()
@@ -49,6 +55,7 @@ class NSD_Process:
 		raise NotImplementedError('developing SCTP..')
 
 	def NSD_Process_live_TCP(self, queue):
+		self.NSD_Process_fork_database()
 		while True:
 			try:
 				packet = queue.get()
@@ -79,6 +86,7 @@ class NSD_Process:
 		raise NotImplementedError('developing PUP..')
 
 	def NSD_Process_live_UDP(self, queue):
+		self.NSD_Process_fork_database()
 		while True:
 			try:
 				packet = queue.get()
@@ -154,6 +162,7 @@ class NSD_Process:
 		raise NotImplementedError('developing IP..')
 
 	def NSD_Process_conversation_ICMP(self, queue):
+		self.NSD_Process_fork_database()
 		while True:
 			try:
 				packet = queue.get()
@@ -179,6 +188,7 @@ class NSD_Process:
 		raise NotImplementedError('developing SCTP..')
 
 	def NSD_Process_conversation_TCP(self, queue):
+		self.NSD_Process_fork_database()
 		while True:
 			try:
 				select = "SELECT Source_IP, Dest_IP, Source_Port, Dest_Port, MAX(Sequence_Number), MAX(ACK_Number) FROM TCP GROUP BY Source_IP, Dest_IP, Source_Port, Dest_Port"
@@ -197,6 +207,7 @@ class NSD_Process:
 		raise NotImplementedError('developing PUP..')
 
 	def NSD_Process_conversation_UDP(self, queue):
+		self.NSD_Process_fork_database()
 		while True:
 			try:
 				packet = queue.get()

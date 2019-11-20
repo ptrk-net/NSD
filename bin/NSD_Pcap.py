@@ -9,7 +9,8 @@ import logging
 class NSD_Pcap:
 
     # Init method
-    def __init__(self, pcap_file, counters, pkts_queue, sync_queue, protocols_file):
+    def __init__(self, log_level, pcap_file, counters, pkts_queue, sync_queue, protocols_file):
+        self.log_level = log_level
         self.logger = logging.getLogger(__name__)
         self.Counters = counters
         self.PQ = pkts_queue
@@ -19,8 +20,9 @@ class NSD_Pcap:
         self.logger.info('Reading pcap..')
         try:
             self.file = dpkt.pcap.Reader(open(pcap_file, 'rb'))
-        finally:
-            self.logger.error('Error reading the pcap file {0}'.format(pcap_file))
+        except ValueError as e:
+            self.logger.error('Error reading the pcap file {0}: {1}'.format(pcap_file,str(e)))
+            self.SQ.put('KILL')
         self.logger.info('PCAP file parsed!')
 
         self.logger.info('Reading protocols..')
@@ -45,9 +47,8 @@ class NSD_Pcap:
                 self.logger.error('Not Implemented Error: ' + str(msg))
             except NotImplementedError as msg:
                 self.logger.error('Not Implemented Error: ' + str(msg))
-                #self.SQ.put('KILL')
+                # self.SQ.put('KILL')
             except KeyError as msg:
                 self.logger.error('No protocol found: ' + str(prot) + '--> ' + str(pkt))
             except KeyboardInterrupt:
                 self.logger.error('Closing socket..')
-

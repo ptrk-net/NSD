@@ -9,7 +9,8 @@ import logging
 class NSD_Packets_Queue:
 
     # NSD
-    def __init__(self):
+    def __init__(self, log_level):
+        self.log_level = log_level
         self.logger = logging.getLogger(__name__)
         self.TCP_Queue = Queue()
         self.UDP_Queue = Queue()

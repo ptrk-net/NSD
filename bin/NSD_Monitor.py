@@ -9,7 +9,8 @@ import logging
 class NSD_Monitor:
 
 	# init method
-	def __init__(self, counters, pipe):
+	def __init__(self, log_level, counters, pipe):
+		self.log_level = log_level
 		self.logger = logging.getLogger(__name__)
 		self.Counters = counters
 		self.Pipe = pipe

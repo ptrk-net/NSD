@@ -5,7 +5,8 @@ from multiprocessing import Value, Lock
 import logging
 
 class NSD_Counters:
-	def __init__(self, initial_value = 0):
+	def __init__(self, log_level, initial_value = 0):
+		self.log_level = log_level
 		self.logger = logging.getLogger(__name__)
 		self.lock = Lock()
 

@@ -10,7 +10,8 @@ import logging
 class NSD_Network:
 
     # Init method
-    def __init__(self, interface, counters, pkts_queue, sync_queue, protocols_file):
+    def __init__(self, log_level, interface, counters, pkts_queue, sync_queue, protocols_file):
+        self.log_level = log_level
         self.logger = logging.getLogger(__name__)
         self.iface = interface
         self.Counters = counters

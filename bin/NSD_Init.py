@@ -29,18 +29,18 @@ class NSD_Init:
             self.logger.info('Preparing for analyze a PCAP file..')
 
         self.Procs = []
-        self.Counters = NSD_Counters()
+        self.Counters = NSD_Counters(cfg.LOGGING_LEVEL)
         self.Mon_Pipe_Parent, Mon_Pipe_Child = Pipe()
         self.Sync_Queue = Queue()
-        self.Pkts_Queue = NSD_Packets_Queue()
-        self.Mon_Proc = NSD_Monitor(self.Counters, Mon_Pipe_Child)
-        self.Pkts_Proc = NSD_Process(cfg.TEMPORAL_DB_SERVER, cfg.TEMPORAL_DB_PORT, self.Counters, self.Sync_Queue)
+        self.Pkts_Queue = NSD_Packets_Queue(cfg.LOGGING_LEVEL)
+        self.Mon_Proc = NSD_Monitor(cfg.LOGGING_LEVEL, self.Counters, Mon_Pipe_Child)
+        self.Pkts_Proc = NSD_Process(cfg.LOGGING_LEVEL, cfg.TEMPORAL_DB_SERVER, cfg.TEMPORAL_DB_PORT, self.Counters, self.Sync_Queue)
 
         if daemon:
-            self.Net_Proc = NSD_Network(cfg.NETWORK_INTERFACE, self.Counters, self.Pkts_Queue, self.Sync_Queue,
+            self.Net_Proc = NSD_Network(cfg.LOGGING_LEVEL, cfg.NETWORK_INTERFACE, self.Counters, self.Pkts_Queue, self.Sync_Queue,
                                     cfg.PROTOCOLS_FILE)
         else:
-            self.Pcap_Proc = NSD_Pcap(pcap_file, self.Counters, self.Pkts_Queue, self.Sync_Queue, cfg.PROTOCOLS_FILE)
+            self.Pcap_Proc = NSD_Pcap(cfg.LOGGING_LEVEL, pcap_file, self.Counters, self.Pkts_Queue, self.Sync_Queue, cfg.PROTOCOLS_FILE)
 
     # Create the environment necessary to work
     def NSD_Init_startup(self):

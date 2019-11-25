@@ -30,7 +30,7 @@ class NSD_Init:
 
         self.Procs = []
         self.Counters = NSD_Counters(cfg.LOGGING_LEVEL)
-        self.Mon_Pipe_Parent, Mon_Pipe_Child = Pipe()
+        self.Mon_Pipe_Parent, Mon_Pipe_Child = Pipe(h
         self.Sync_Queue = Queue()
         self.Pkts_Queue = NSD_Packets_Queue(cfg.LOGGING_LEVEL)
         self.Mon_Proc = NSD_Monitor(cfg.LOGGING_LEVEL, self.Counters, Mon_Pipe_Child)

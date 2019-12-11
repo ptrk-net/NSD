@@ -59,7 +59,7 @@ class NSD_Network:
                 prot = int.from_bytes(packet[23:24], byteorder='big')
                 # self.logger.info('Protocol: ' + str(prot) + ' --> ' + self.Protocols_Table[prot])
                 getattr(self.PQ, 'NSD_Packets_Queue_insert_' + self.Protocols_Table[prot])(packet)
-                getattr(self.Counters, 'NSD_Counters_increment_received_' + self.Protocols_Table[prot])()
+                getattr(self.Counters, 'NSD_Counters_increment_total_received_' + self.Protocols_Table[prot])()
             except AttributeError as msg:
                 self.logger.error('Not Implemented Error: ' + str(msg))
             except NotImplementedError as msg:

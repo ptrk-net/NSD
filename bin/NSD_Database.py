@@ -26,6 +26,21 @@ class NSD_Database:
 		#	sys.exit()
 		self.logger.info('Database ready!')
 
+	# Insert ICMP packets into the memory database
+	def NSD_Database_insert_ICMP_packet(self, pkt):
+		self.db.ICMP.insert_one(
+			{
+				'Date': datetime.now().strftime('%d/%m/%Y %H:%M:%S.%f'),
+				'Source_IP': pkt[0],
+				'Dest_IP': pkt[1],
+				'Type': pkt[2],
+				'Code': pkt[3],
+				'Checksum': pkt[4],
+				'Header': pkt[5],
+				'Payload': pkt[6]
+			}
+		)
+
 	# Insert TCP packets into the memory database
 	def NSD_Database_insert_TCP_packet(self, pkt):
 		if self.log_level == 'DEBUG':
@@ -39,7 +54,11 @@ class NSD_Database:
 				'Dest_Port': pkt[3],
 				'Sequence_Number': pkt[4],
 				'ACK_Number': pkt[5],
-				'Data': pkt[6]
+				'Flags': pkt[6],
+				'Window': pkt[7],
+				'Checksum': pkt[8],
+				'Urgent_Pointer': pkt[9],
+				'Data': pkt[10]
 			}
 		)
 
@@ -52,19 +71,18 @@ class NSD_Database:
 				'Dest_IP': pkt[1],
 				'Source_Port': pkt[2],
 				'Dest_Port': pkt[3],
-				'Data': pkt[4]
+				'Length': pkt[4],
+				'Checksum': pkt[5],
+				'Data': pkt[6]
 			}
 		)
 
-	# Insert ICMP packets into the memory database
-	def NSD_Database_insert_ICMP_packet(self, pkt):
-		self.db.ICMP.insert_one(
-			{
-				'Date': datetime.now().strftime('%d/%m/%Y %H:%M:%S.%f'),
-				'Source_IP': pkt[0],
-				'Dest_IP': pkt[1],
-				'Type': pkt[2],
-				'Code': pkt[3],
-			}
-		)
+	# Reading memory database
+	def NSD_Database_get_ICMP_packets(self, group):
+		self.db.ICMP.aggregate(group)
 
+	def NSD_Database_get_TCP_packets(self, group):
+		self.db.TCP.aggregate(group)
+
+	def NSD_Database_get_UDP_packets(self, group):
+		self.db.UDP.aggregate(group)

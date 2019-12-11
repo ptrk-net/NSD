@@ -12,7 +12,6 @@ from bin.NSD_Process import NSD_Process
 from bin.NSD_Counters import NSD_Counters
 from bin.NSD_Monitor import NSD_Monitor
 from bin.NSD_Pcap import NSD_Pcap
-
 from conf import settings as cfg
 
 

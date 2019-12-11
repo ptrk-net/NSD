@@ -5,10 +5,16 @@ from gym.utils import seeding
 class ps12Env(gym.Env):
   metadata = {'render.modes': ['human']}
 
-  def __init__(self, log_level, db_server, db_port, counters, sync_queue):
+  def __init__(self, log_level, conversation, sync_queue):
     self.log_level = log_level
-    self.db_server = db_server
-    self.db_port = db_port
+    self.conv = conversation
+    self.sync_queue = sync_queue
+
+    self.reward_range = (0, 100)
+    self.action_space = spaces.Box(low=0, high=1, dtype=int)
+    self.observation_space = spaces.Box(low=0, high=1)
+
+
 
   def step(self, action):
     raise NotImplementedError('Working...')

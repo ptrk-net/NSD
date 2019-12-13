@@ -12,6 +12,7 @@ from bin.NSD_Process import NSD_Process
 from bin.NSD_Counters import NSD_Counters
 from bin.NSD_Monitor import NSD_Monitor
 from bin.NSD_Pcap import NSD_Pcap
+from bin.NSD_Flow import NSD_Flow
 from conf import settings as cfg
 
 
@@ -34,6 +35,7 @@ class NSD_Init:
         self.Pkts_Queue = NSD_Packets_Queue(cfg.LOGGING_LEVEL)
         self.Mon_Proc = NSD_Monitor(cfg.LOGGING_LEVEL, self.Counters, Mon_Pipe_Child)
         self.Pkts_Proc = NSD_Process(cfg.LOGGING_LEVEL, cfg.TEMPORAL_DB_SERVER, cfg.TEMPORAL_DB_PORT, self.Counters, self.Sync_Queue)
+        self.Flows_Proc = NSD_Flow(cfg.LOGGING_LEVEL, cfg.TEMPORAL_DB_SERVER, cfg.TEMPORAL_DB_PORT, self.Counters, self.Sync_Queue)
 
         if daemon:
             self.Net_Proc = NSD_Network(cfg.LOGGING_LEVEL, cfg.NETWORK_INTERFACE, self.Counters, self.Pkts_Queue, self.Sync_Queue,
@@ -79,6 +81,28 @@ class NSD_Init:
             ICMP_PP.start()
             self.Procs.append(ICMP_PP)
         self.logger.info('ICMP processing started!')
+
+        # Create the Flows process
+#        print('Starting ICMP Flows process..')
+#        ICMP_FP = Process(target=self.Flows_Proc.NSD_Flow_ICMP, args=())
+#        ICMP_FP.daemon = True
+#        ICMP_FP.start()
+#        self.Procs.append(ICMP_FP)
+#        self.logger.info('ICMP Flows started!')
+
+        print('Starting TCP Flows process..')
+        TCP_FP = Process(target=self.Flows_Proc.NSD_Flow_TCP, args=())
+        TCP_FP.daemon = True
+        TCP_FP.start()
+        self.Procs.append(TCP_FP)
+        self.logger.info('TCP Flows started!')
+
+#        print('Starting UDP Flows process..')
+#        UDP_FP = Process(target=self.Flows_Proc.NSD_Flow_UDP, args=())
+#        UDP_FP.daemon = True
+#        UDP_FP.start()
+#        self.Procs.append(UDP_FP)
+#        self.logger.info('UDP Flows started!')
 
         # Create the AI process
         self.logger.info('Implementing AI process..')

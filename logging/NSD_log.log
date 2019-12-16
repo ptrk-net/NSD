@@ -1,73 +1,78 @@
-2019-12-14 00:09:06,135 - bin - INFO - Completed configuring logger()!
-2019-12-14 00:09:06,137 - bin.NSD_Init - INFO - Starting as daemon..
-2019-12-14 00:09:06,142 - bin.NSD_Network - INFO - Reading protocols..
-2019-12-14 00:09:06,142 - bin.NSD_Network - INFO - Protocols parsed!
-2019-12-14 00:09:06,143 - bin.NSD_Network - INFO - Opening socket..
-2019-12-14 00:09:06,176 - bin.NSD_Network - INFO - Socket open!
-2019-12-14 00:09:06,177 - bin.NSD_Init - INFO - Starting up the monitor process...
-2019-12-14 00:09:06,180 - bin.NSD_Init - INFO - Monitor started!
-2019-12-14 00:09:06,180 - bin.NSD_Init - INFO - Starting up the TCP processing process...
-2019-12-14 00:09:06,181 - bin.NSD_Monitor - INFO - 
+2019-12-16 11:35:28,184 - bin - INFO - Completed configuring logger()!
+2019-12-16 11:35:28,186 - bin.NSD_Init - INFO - Starting as daemon..
+2019-12-16 11:35:28,191 - bin.NSD_Network - INFO - Reading protocols..
+2019-12-16 11:35:28,191 - bin.NSD_Network - INFO - Protocols parsed!
+2019-12-16 11:35:28,191 - bin.NSD_Network - INFO - Opening socket..
+2019-12-16 11:35:28,225 - bin.NSD_Network - INFO - Socket open!
+2019-12-16 11:35:28,226 - bin.NSD_Init - INFO - Starting up the monitor process...
+2019-12-16 11:35:28,229 - bin.NSD_Init - INFO - Monitor started!
+2019-12-16 11:35:28,230 - bin.NSD_Init - INFO - Starting up the TCP processing process...
+2019-12-16 11:35:28,232 - bin.NSD_Monitor - INFO - 
 
 --- PACKET PROCESS REPORT ---
-2019-12-14 00:09:06,182 - bin.NSD_Monitor - INFO - - TCP
-2019-12-14 00:09:06,182 - bin.NSD_Monitor - INFO - -- Received: 0
-2019-12-14 00:09:06,182 - bin.NSD_Monitor - INFO - -- Processed: 0
-2019-12-14 00:09:06,182 - bin.NSD_Monitor - INFO - - UDP
-2019-12-14 00:09:06,182 - bin.NSD_Monitor - INFO - -- Received: 0
-2019-12-14 00:09:06,183 - bin.NSD_Monitor - INFO - -- Processed: 0
-2019-12-14 00:09:06,183 - bin.NSD_Monitor - INFO - - ICMP
-2019-12-14 00:09:06,183 - bin.NSD_Monitor - INFO - -- Received: 0
-2019-12-14 00:09:06,183 - bin.NSD_Monitor - INFO - -- Processed: 0
-2019-12-14 00:09:06,185 - bin.NSD_Database - INFO - Accessing database..
-2019-12-14 00:09:06,186 - bin.NSD_Database - INFO - Accessing database..
-2019-12-14 00:09:06,188 - bin.NSD_Database - INFO - Accessing database..
-2019-12-14 00:09:06,196 - bin.NSD_Database - INFO - Database ready!
-2019-12-14 00:09:06,197 - bin.NSD_Database - INFO - Accessing database..
-2019-12-14 00:09:06,199 - bin.NSD_Database - INFO - Database ready!
-2019-12-14 00:09:06,199 - bin.NSD_Database - INFO - Accessing database..
-2019-12-14 00:09:06,201 - bin.NSD_Database - INFO - Accessing database..
-2019-12-14 00:09:06,202 - bin.NSD_Database - INFO - Accessing database..
-2019-12-14 00:09:06,202 - bin.NSD_Init - INFO - TCP processing started!
-2019-12-14 00:09:06,204 - bin.NSD_Init - INFO - Starting up the UDP processing process...
-2019-12-14 00:09:06,205 - bin.NSD_Database - INFO - Accessing database..
-2019-12-14 00:09:06,206 - bin.NSD_Database - INFO - Database ready!
-2019-12-14 00:09:06,208 - bin.NSD_Database - INFO - Accessing database..
-2019-12-14 00:09:06,211 - bin.NSD_Init - INFO - UDP processing started!
-2019-12-14 00:09:06,211 - bin.NSD_Database - INFO - Accessing database..
-2019-12-14 00:09:06,211 - bin.NSD_Init - INFO - Starting up the ICMP processing process...
-2019-12-14 00:09:06,213 - bin.NSD_Init - INFO - ICMP processing started!
-2019-12-14 00:09:06,216 - bin.NSD_Init - INFO - TCP Flows started!
-2019-12-14 00:09:06,216 - bin.NSD_Init - INFO - Implementing AI process..
-2019-12-14 00:09:06,217 - bin.NSD_Init - INFO - Starting up the network process...
-2019-12-14 00:09:06,218 - bin.NSD_Init - INFO - Network started!
-2019-12-14 00:09:06,219 - bin.NSD_Database - INFO - Database ready!
-2019-12-14 00:09:06,221 - bin.NSD_Database - INFO - Accessing database..
-2019-12-14 00:09:06,222 - bin.NSD_Database - INFO - Accessing database..
-2019-12-14 00:09:06,222 - bin.NSD_Database - INFO - Database ready!
-2019-12-14 00:09:06,225 - bin.NSD_Database - INFO - Database ready!
-2019-12-14 00:09:06,225 - bin.NSD_Database - INFO - Accessing database..
-2019-12-14 00:09:06,227 - bin.NSD_Network - INFO - Ready to receive packets!
-2019-12-14 00:09:06,227 - bin.NSD_Database - INFO - Accessing database..
-2019-12-14 00:09:06,230 - bin.NSD_Database - INFO - Database ready!
-2019-12-14 00:09:06,231 - bin.NSD_Database - INFO - Database ready!
-2019-12-14 00:09:06,233 - bin.NSD_Database - INFO - Database ready!
-2019-12-14 00:09:06,234 - bin.NSD_Database - INFO - Database ready!
-2019-12-14 00:09:06,235 - bin.NSD_Database - INFO - Database ready!
-2019-12-14 00:09:06,236 - bin.NSD_Database - INFO - Database ready!
-2019-12-14 00:09:06,238 - bin.NSD_Database - INFO - Database ready!
-2019-12-14 00:09:06,238 - bin.NSD_Database - INFO - Database ready!
-2019-12-14 00:09:06,239 - bin.NSD_Flow - DEBUG - NSD_Flow_flow_TCP: get packets from database..
-2019-12-14 00:09:08,186 - bin.NSD_Monitor - INFO - 
+2019-12-16 11:35:28,233 - bin.NSD_Monitor - INFO - - TCP
+2019-12-16 11:35:28,233 - bin.NSD_Monitor - INFO - -- Received: 0
+2019-12-16 11:35:28,233 - bin.NSD_Monitor - INFO - -- Processed: 0
+2019-12-16 11:35:28,233 - bin.NSD_Monitor - INFO - - UDP
+2019-12-16 11:35:28,234 - bin.NSD_Monitor - INFO - -- Received: 0
+2019-12-16 11:35:28,234 - bin.NSD_Monitor - INFO - -- Processed: 0
+2019-12-16 11:35:28,234 - bin.NSD_Monitor - INFO - - ICMP
+2019-12-16 11:35:28,234 - bin.NSD_Monitor - INFO - -- Received: 0
+2019-12-16 11:35:28,234 - bin.NSD_Monitor - INFO - -- Processed: 0
+2019-12-16 11:35:28,235 - bin.NSD_Database - INFO - Accessing database..
+2019-12-16 11:35:28,237 - bin.NSD_Database - INFO - Accessing database..
+2019-12-16 11:35:28,241 - bin.NSD_Database - INFO - Accessing database..
+2019-12-16 11:35:28,243 - bin.NSD_Database - INFO - Accessing database..
+2019-12-16 11:35:28,251 - bin.NSD_Database - INFO - Accessing database..
+2019-12-16 11:35:28,251 - bin.NSD_Database - INFO - Accessing database..
+2019-12-16 11:35:28,254 - bin.NSD_Init - INFO - TCP processing started!
+2019-12-16 11:35:28,257 - bin.NSD_Database - INFO - Accessing database..
+2019-12-16 11:35:28,257 - bin.NSD_Database - INFO - Accessing database..
+2019-12-16 11:35:28,258 - bin.NSD_Init - INFO - Starting up the UDP processing process...
+2019-12-16 11:35:28,258 - bin.NSD_Database - INFO - Accessing database..
+2019-12-16 11:35:28,264 - bin.NSD_Database - INFO - Database ready!
+2019-12-16 11:35:28,266 - bin.NSD_Database - INFO - Database ready!
+2019-12-16 11:35:28,266 - bin.NSD_Database - INFO - Database ready!
+2019-12-16 11:35:28,268 - bin.NSD_Database - INFO - Accessing database..
+2019-12-16 11:35:28,270 - bin.NSD_Database - INFO - Accessing database..
+2019-12-16 11:35:28,270 - bin.NSD_Database - INFO - Database ready!
+2019-12-16 11:35:28,277 - bin.NSD_Init - INFO - UDP processing started!
+2019-12-16 11:35:28,277 - bin.NSD_Init - INFO - Starting up the ICMP processing process...
+2019-12-16 11:35:28,281 - bin.NSD_Database - INFO - Accessing database..
+2019-12-16 11:35:28,281 - bin.NSD_Init - INFO - ICMP processing started!
+2019-12-16 11:35:28,283 - bin.NSD_Database - INFO - Database ready!
+2019-12-16 11:35:28,286 - bin.NSD_Database - INFO - Database ready!
+2019-12-16 11:35:28,286 - bin.NSD_Init - INFO - TCP Flows started!
+2019-12-16 11:35:28,287 - bin.NSD_Init - INFO - Implementing AI process..
+2019-12-16 11:35:28,287 - bin.NSD_Init - INFO - Starting up the network process...
+2019-12-16 11:35:28,287 - bin.NSD_Database - INFO - Accessing database..
+2019-12-16 11:35:28,289 - bin.NSD_Init - INFO - Network started!
+2019-12-16 11:35:28,290 - bin.NSD_Database - INFO - Database ready!
+2019-12-16 11:35:28,291 - bin.NSD_Network - INFO - Ready to receive packets!
+2019-12-16 11:35:28,291 - bin.NSD_Database - INFO - Database ready!
+2019-12-16 11:35:28,291 - bin.NSD_Database - INFO - Database ready!
+2019-12-16 11:35:28,292 - bin.NSD_Database - INFO - Accessing database..
+2019-12-16 11:35:28,292 - bin.NSD_Database - INFO - Database ready!
+2019-12-16 11:35:28,293 - bin.NSD_Database - INFO - Database ready!
+2019-12-16 11:35:28,294 - bin.NSD_Database - INFO - Database ready!
+2019-12-16 11:35:28,298 - bin.NSD_Database - INFO - Database ready!
+2019-12-16 11:35:28,298 - bin.NSD_Database - INFO - Database ready!
+2019-12-16 11:35:28,299 - bin.NSD_Flow - DEBUG - NSD_Flow_flow_TCP: get packets from database..
+2019-12-16 11:35:30,237 - bin.NSD_Monitor - INFO - 
 
 --- PACKET PROCESS REPORT ---
-2019-12-14 00:09:08,186 - bin.NSD_Monitor - INFO - - TCP
-2019-12-14 00:09:08,187 - bin.NSD_Monitor - INFO - -- Received: 0
-2019-12-14 00:09:08,187 - bin.NSD_Monitor - INFO - -- Processed: 0
-2019-12-14 00:09:08,187 - bin.NSD_Monitor - INFO - - UDP
-2019-12-14 00:09:08,188 - bin.NSD_Monitor - INFO - -- Received: 0
-2019-12-14 00:09:08,188 - bin.NSD_Monitor - INFO - -- Processed: 0
-2019-12-14 00:09:08,188 - bin.NSD_Monitor - INFO - - ICMP
-2019-12-14 00:09:08,189 - bin.NSD_Monitor - INFO - -- Received: 0
-2019-12-14 00:09:08,189 - bin.NSD_Monitor - INFO - -- Processed: 0
-2019-12-14 00:09:08,266 - bin.NSD_Network - ERROR - Closing socket..
+2019-12-16 11:35:30,237 - bin.NSD_Monitor - INFO - - TCP
+2019-12-16 11:35:30,238 - bin.NSD_Monitor - INFO - -- Received: 0
+2019-12-16 11:35:30,238 - bin.NSD_Monitor - INFO - -- Processed: 0
+2019-12-16 11:35:30,238 - bin.NSD_Monitor - INFO - - UDP
+2019-12-16 11:35:30,239 - bin.NSD_Monitor - INFO - -- Received: 0
+2019-12-16 11:35:30,239 - bin.NSD_Monitor - INFO - -- Processed: 0
+2019-12-16 11:35:30,239 - bin.NSD_Monitor - INFO - - ICMP
+2019-12-16 11:35:30,240 - bin.NSD_Monitor - INFO - -- Received: 0
+2019-12-16 11:35:30,240 - bin.NSD_Monitor - INFO - -- Processed: 0
+2019-12-16 11:35:30,313 - bin.NSD_Flow - INFO - 37
+2019-12-16 11:35:30,313 - bin.NSD_Flow - INFO - {ObjectId('5dd53e7daad6b29aed546401'): {'Flow': 1, 'AI': 1, 'Result': 3}}
+2019-12-16 11:35:30,313 - bin.NSD_Flow - INFO - 59
+2019-12-16 11:35:30,314 - bin.NSD_Flow - INFO - {ObjectId('5dd53e7daad6b29aed546401'): {'Flow': 1, 'AI': 1, 'Result': 3}, ObjectId('5dd53e7da0120e9cb0546401'): {'Flow': 1, 'AI': 1, 'Result': 3}}
+2019-12-16 11:35:30,314 - bin.NSD_Flow - DEBUG - NSD_Flow_flow_TCP: get packets from database..
+2019-12-16 11:35:31,414 - bin.NSD_Network - ERROR - Closing socket..

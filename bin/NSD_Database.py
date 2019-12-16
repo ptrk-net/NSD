@@ -106,6 +106,7 @@ class NSD_Database:
                 }
             }
         }]
+        packets = []
         flows = list(self.db.TCP.aggregate(aggregate_query))
         for flow in flows:
             find_query = {
@@ -114,12 +115,8 @@ class NSD_Database:
                 'Dest_IP': flow['_id']['Dest_IP'],
                 'Dest_Port': flow['_id']['Dest_Port']
             }
-            #packets.update(
-            print(find_query)
-            for keys, values in self.db.TCP.find(find_query).items():
-                print(keys)
-                print(values)
-            #return self.db.TCP.find(find_query)
+            packets.append(list(self.db.TCP.find(find_query)))
+        return packets
 
     def NSD_Database_get_UDP_packets(self):
         aggregate_query = [{

@@ -87,13 +87,15 @@ class NSD_Database:
                 }
             }
         }]
+        packets = []
         flows = list(self.db.ICMP.aggregate(aggregate_query))
         for flow in flows:
             find_query = {
                 'Source_IP': flow['_id']['Source_IP'],
                 'Dest_IP': flow['_id']['Dest_IP']
             }
-            return self.db.ICMP.find(find_query)
+            packets.append(list(self.db.ICMP.find(find_query)))
+        return packets
 
     def NSD_Database_get_TCP_packets(self):
         aggregate_query = [{
@@ -129,6 +131,7 @@ class NSD_Database:
                 }
             }
         }]
+        packets = []
         flows = list(self.db.UDP.aggregate(aggregate_query))
         for flow in flows:
             find_query = {
@@ -137,4 +140,5 @@ class NSD_Database:
                 'Dest_IP': flow['_id']['Dest_IP'],
                 'Dest_Port': flow['_id']['Dest_Port']
             }
-            return self.db.UDP.find(find_query)
+            packets.append(list(self.db.UDP.find(find_query)))
+        return packets

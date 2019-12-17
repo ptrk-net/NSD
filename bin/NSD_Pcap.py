@@ -42,7 +42,7 @@ class NSD_Pcap:
             try:
                 prot = int.from_bytes(pkt[23:24], byteorder='big')
                 getattr(self.PQ, 'NSD_Packets_Queue_insert_' + self.Protocols_Table[prot])(pkt)
-                getattr(self.Counters, 'NSD_Counters_increment_received_' + self.Protocols_Table[prot])()
+                getattr(self.Counters, 'NSD_Counters_increment_total_received_' + self.Protocols_Table[prot])()
             except AttributeError as msg:
                 self.logger.error('Not Implemented Error: ' + str(msg))
             except NotImplementedError as msg:

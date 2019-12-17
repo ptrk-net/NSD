@@ -39,7 +39,7 @@ class NSD_Process:
 
                 self.DB.NSD_Database_insert_ICMP_packet([Source_IP, Dest_IP, Type, Code, Checksum, Header, Payload])
 
-                self.Counters.NSD_Counters_increment_database_ICMP()
+                self.Counters.NSD_Counters_increment_total_database_ICMP()
             except KeyboardInterrupt:
                 print('Closing ICMP process..')
                 return
@@ -66,7 +66,7 @@ class NSD_Process:
                 self.DB.NSD_Database_insert_TCP_packet([Source_IP, Dest_IP, Source_Port, Dest_Port, Sequence_Number,
                                                         ACK_Number, Flags, Window, Checksum, Urgent_Pointer, Data])
 
-                self.Counters.NSD_Counters_increment_database_TCP()
+                self.Counters.NSD_Counters_increment_total_database_TCP()
             except UnicodeDecodeError as msg:
                 print('TCP Codec Error: ' + str(msg))
             except KeyboardInterrupt:
@@ -91,7 +91,7 @@ class NSD_Process:
                 self.DB.NSD_Database_insert_UDP_packet([Source_IP, Dest_IP, Source_Port, Dest_Port,
                                                         Length, Checksum, Data])
 
-                self.Counters.NSD_Counters_increment_database_UDP()
+                self.Counters.NSD_Counters_increment_total_database_UDP()
             except UnicodeDecodeError as msg:
                 print('UDP Codec Error: ' + str(msg))
             except KeyboardInterrupt:

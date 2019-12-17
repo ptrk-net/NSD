@@ -4,6 +4,7 @@
 import sys
 import logging
 from multiprocessing import Process, Queue, Pipe
+import multiprocessing
 
 # Imports NSD libraries
 from bin.NSD_Network import NSD_Network
@@ -42,6 +43,15 @@ class NSD_Init:
                                     cfg.PROTOCOLS_FILE)
         else:
             self.Pcap_Proc = NSD_Pcap(cfg.LOGGING_LEVEL, pcap_file, self.Counters, self.Pkts_Queue, self.Sync_Queue, cfg.PROTOCOLS_FILE)
+
+    # To manage the global interruptions
+    def NSD_Init_except_hook(self, exctype, value, traceback):
+        if exctype == KeyboardInterrupt:
+            print("NSD_Init: INFO: Shutdown activated")
+            for proc in multiprocessing.active_children():
+                proc.terminate()
+        else:
+            sys.__excepthook__(exctype, value, traceback)
 
     # Create the environment necessary to work
     def NSD_Init_startup(self):
@@ -83,12 +93,12 @@ class NSD_Init:
         self.logger.info('ICMP processing started!')
 
         # Create the Flows process
-#        print('Starting ICMP Flows process..')
-#        ICMP_FP = Process(target=self.Flows_Proc.NSD_Flow_ICMP, args=())
-#        ICMP_FP.daemon = True
-#        ICMP_FP.start()
-#        self.Procs.append(ICMP_FP)
-#        self.logger.info('ICMP Flows started!')
+        print('Starting ICMP Flows process..')
+        ICMP_FP = Process(target=self.Flows_Proc.NSD_Flow_ICMP, args=())
+        ICMP_FP.daemon = True
+        ICMP_FP.start()
+        self.Procs.append(ICMP_FP)
+        self.logger.info('ICMP Flows started!')
 
         print('Starting TCP Flows process..')
         TCP_FP = Process(target=self.Flows_Proc.NSD_Flow_TCP, args=())
@@ -97,15 +107,18 @@ class NSD_Init:
         self.Procs.append(TCP_FP)
         self.logger.info('TCP Flows started!')
 
-#        print('Starting UDP Flows process..')
-#        UDP_FP = Process(target=self.Flows_Proc.NSD_Flow_UDP, args=())
-#        UDP_FP.daemon = True
-#        UDP_FP.start()
-#        self.Procs.append(UDP_FP)
-#        self.logger.info('UDP Flows started!')
+        print('Starting UDP Flows process..')
+        UDP_FP = Process(target=self.Flows_Proc.NSD_Flow_UDP, args=())
+        UDP_FP.daemon = True
+        UDP_FP.start()
+        self.Procs.append(UDP_FP)
+        self.logger.info('UDP Flows started!')
 
         # Create the AI process
         self.logger.info('Implementing AI process..')
+
+        sys.excepthook = self.NSD_Init_except_hook
+
 
     # Start as daemon
     def NSD_Init_daemon(self):
@@ -124,7 +137,7 @@ class NSD_Init:
 
     # Start to analyze a PCAP file
     def NSD_Init_analyze_pcap(self):
-            self.Pcap_Proc.NSD_Pcap_process()
+        self.Pcap_Proc.NSD_Pcap_process()
 
 # Link all the process with main
 # for proc in Procs:

@@ -34,8 +34,8 @@ class NSD_Flow:
             if self.log_level == 'DEBUG':
                 self.logger.debug('NSD_Flow_flow_ICMP: get packets from database..')
 
-            packets = 'None'
-            while packets == 'None':
+            packets = []
+            while not packets:
                 packets = self.DB.NSD_Database_get_ICMP_packets()
                 time.sleep(2)
 
@@ -46,10 +46,12 @@ class NSD_Flow:
             for flow in packets:
                 # flow_id will be the objectID assigned by the database of the first packet inserted
                 # The database will ensure it's the only one
-                flow_id = flow[0]['_id']
+                flow_id = str(flow[0]['_id'])
 
                 # Update the status dict
-                if self.Flows_ICMP_status[flow_id] is None:
+                try:
+                    self.Flows_ICMP_status[flow_id]
+                except KeyError:
                     flow_status = {
                         'Flow': opts.FLOW_UPDATING,
                         'AI': opts.FLOW_AI_PS12_NOT_STARTED,
@@ -82,10 +84,12 @@ class NSD_Flow:
             for flow in packets:
                 # flow_id will be the objectID assigned by the database of the first packet inserted
                 # The database will ensure it's the only one
-                flow_id = flow[0]['_id']
+                flow_id = str(flow[0]['_id'])
 
                 # Update the status dict
-                if self.Flows_ICMP_status[flow_id] is None:
+                try:
+                    self.Flows_ICMP_status[flow_id]
+                except KeyError:
                     flow_status = {
                         'Flow': opts.FLOW_UPDATING,
                         'AI': opts.FLOW_AI_PS12_NOT_STARTED,
@@ -95,6 +99,7 @@ class NSD_Flow:
 
                 # Update the counter
                 self.Counters.NSD_Counters_update_flow_TCP(flow_id, len(flow))
+                print(self.Counters.NSD_Counters_get_flows_TCP())
 
         # TODO
         # 1. Pass the packets to AI
@@ -106,8 +111,8 @@ class NSD_Flow:
             if self.log_level == 'DEBUG':
                 self.logger.debug('NSD_Flow_flow_UDP: get packets from database..')
 
-            packets = 'None'
-            while packets == 'None':
+            packets = []
+            while not packets:
                 packets = self.DB.NSD_Database_get_UDP_packets()
                 time.sleep(2)
 
@@ -117,10 +122,12 @@ class NSD_Flow:
             for flow in packets:
                 # flow_id will be the objectID assigned by the database of the first packet inserted
                 # The database will ensure it's the only one
-                flow_id = flow[0]['_id']
+                flow_id = str(flow[0]['_id'])
 
                 # Update the status dict
-                if self.Flows_UDP_status[flow_id] is None:
+                try:
+                    self.Flows_UDP_status[flow_id]
+                except KeyError:
                     flow_status = {
                         'Flow': opts.FLOW_UPDATING,
                         'AI': opts.FLOW_AI_PS12_NOT_STARTED,

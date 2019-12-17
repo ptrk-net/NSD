@@ -4,15 +4,17 @@
 import dpkt
 import logging
 
+# Import NSD libraries
+from bin.NSD_Counters import NSD_Counters
+
 
 # Class to read pcaps file
 class NSD_Pcap:
 
     # Init method
-    def __init__(self, log_level, pcap_file, counters, pkts_queue, sync_queue, protocols_file):
+    def __init__(self, log_level, pcap_file, pkts_queue, sync_queue, protocols_file):
         self.log_level = log_level
         self.logger = logging.getLogger(__name__)
-        self.Counters = counters
         self.PQ = pkts_queue
         self.SQ = sync_queue
         self.Protocols_Table = dict()
@@ -23,6 +25,7 @@ class NSD_Pcap:
         except ValueError as e:
             self.logger.error('Error reading the pcap file {0}: {1}'.format(pcap_file,str(e)))
             self.SQ.put('KILL')
+            return None
         self.logger.info('PCAP file parsed!')
 
         self.logger.info('Reading protocols..')
@@ -42,7 +45,8 @@ class NSD_Pcap:
             try:
                 prot = int.from_bytes(pkt[23:24], byteorder='big')
                 getattr(self.PQ, 'NSD_Packets_Queue_insert_' + self.Protocols_Table[prot])(pkt)
-                getattr(self.Counters, 'NSD_Counters_increment_total_received_' + self.Protocols_Table[prot])()
+                getattr(NSD_Counters(),
+                        'NSD_Counters_increment_total_received_' + self.Protocols_Table[prot])()
             except AttributeError as msg:
                 self.logger.error('Not Implemented Error: ' + str(msg))
             except NotImplementedError as msg:

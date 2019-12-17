@@ -6,15 +6,15 @@ import time
 
 # Import NSD libraries
 from bin.NSD_Database import NSD_Database
+from bin.NSD_Counters import NSD_Counters
 from conf import variables as opts
 
 
 class NSD_Flow:
 
-    def __init__(self, log_level, db_server, db_port, counters, sync_queue):
+    def __init__(self, log_level, db_server, db_port, sync_queue):
         self.log_level = log_level
         self.logger = logging.getLogger(__name__)
-        self.Counters = counters
         self.SQ = sync_queue
         self.db_server = db_server
         self.db_port = db_port
@@ -60,7 +60,7 @@ class NSD_Flow:
                     self.Flows_ICMP_status[flow_id] = flow_status
 
                 # Update the counter
-                self.Counters.NSD_Counters_update_flow_ICMP(flow_id, len(flow))
+                NSD_Counters.NSD_Counters_update_flow_ICMP(flow_id, len(flow))
 
         # TODO
         # 1. Pass the packets to AI
@@ -98,8 +98,7 @@ class NSD_Flow:
                     self.Flows_TCP_status[flow_id] = flow_status
 
                 # Update the counter
-                self.Counters.NSD_Counters_update_flow_TCP(flow_id, len(flow))
-                print(self.Counters.NSD_Counters_get_flows_TCP())
+                NSD_Counters.NSD_Counters_update_flow_TCP(flow_id, len(flow))
 
         # TODO
         # 1. Pass the packets to AI
@@ -136,7 +135,7 @@ class NSD_Flow:
                     self.Flows_UDP_status[flow_id] = flow_status
 
                 # Update the counter
-                self.Counters.NSD_Counters_update_flow_UDP(flow_id, len(flow))
+                NSD_Counters.NSD_Counters_update_flow_UDP(flow_id, len(flow))
 
         # TODO
         # 1. Pass the packets to AI

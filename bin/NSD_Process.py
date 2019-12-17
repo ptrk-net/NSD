@@ -6,15 +6,15 @@ import logging
 
 # Import NSD libraries
 from bin.NSD_Database import NSD_Database
+from bin.NSD_Counters import NSD_Counters
 
 
 # Class to make the first packets classification based in the protocol
 class NSD_Process:
 
-    def __init__(self, log_level, db_server, db_port, counters, sync_queue):
+    def __init__(self, log_level, db_server, db_port, sync_queue):
         self.log_level = log_level
         self.logger = logging.getLogger(__name__)
-        self.Counters = counters
         self.SQ = sync_queue
         self.db_server = db_server
         self.db_port = db_port
@@ -39,7 +39,7 @@ class NSD_Process:
 
                 self.DB.NSD_Database_insert_ICMP_packet([Source_IP, Dest_IP, Type, Code, Checksum, Header, Payload])
 
-                self.Counters.NSD_Counters_increment_total_database_ICMP()
+                NSD_Counters.NSD_Counters_increment_total_database_ICMP()
             except KeyboardInterrupt:
                 print('Closing ICMP process..')
                 return
@@ -66,7 +66,7 @@ class NSD_Process:
                 self.DB.NSD_Database_insert_TCP_packet([Source_IP, Dest_IP, Source_Port, Dest_Port, Sequence_Number,
                                                         ACK_Number, Flags, Window, Checksum, Urgent_Pointer, Data])
 
-                self.Counters.NSD_Counters_increment_total_database_TCP()
+                NSD_Counters.NSD_Counters_increment_total_database_TCP()
             except UnicodeDecodeError as msg:
                 print('TCP Codec Error: ' + str(msg))
             except KeyboardInterrupt:
@@ -91,7 +91,7 @@ class NSD_Process:
                 self.DB.NSD_Database_insert_UDP_packet([Source_IP, Dest_IP, Source_Port, Dest_Port,
                                                         Length, Checksum, Data])
 
-                self.Counters.NSD_Counters_increment_total_database_UDP()
+                NSD_Counters.NSD_Counters_increment_total_database_UDP()
             except UnicodeDecodeError as msg:
                 print('UDP Codec Error: ' + str(msg))
             except KeyboardInterrupt:

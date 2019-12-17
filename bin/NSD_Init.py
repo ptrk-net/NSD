@@ -10,7 +10,6 @@ import multiprocessing
 from bin.NSD_Network import NSD_Network
 from bin.NSD_Packets_Queue import NSD_Packets_Queue
 from bin.NSD_Process import NSD_Process
-from bin.NSD_Counters import NSD_Counters
 from bin.NSD_Monitor import NSD_Monitor
 from bin.NSD_Pcap import NSD_Pcap
 from bin.NSD_Flow import NSD_Flow
@@ -30,19 +29,19 @@ class NSD_Init:
             self.logger.info('Preparing for analyze a PCAP file..')
 
         self.Procs = []
-        self.Counters = NSD_Counters(cfg.LOGGING_LEVEL)
         self.Mon_Pipe_Parent, Mon_Pipe_Child = Pipe()
         self.Sync_Queue = Queue()
         self.Pkts_Queue = NSD_Packets_Queue(cfg.LOGGING_LEVEL)
-        self.Mon_Proc = NSD_Monitor(cfg.LOGGING_LEVEL, self.Counters, Mon_Pipe_Child)
-        self.Pkts_Proc = NSD_Process(cfg.LOGGING_LEVEL, cfg.TEMPORAL_DB_SERVER, cfg.TEMPORAL_DB_PORT, self.Counters, self.Sync_Queue)
-        self.Flows_Proc = NSD_Flow(cfg.LOGGING_LEVEL, cfg.TEMPORAL_DB_SERVER, cfg.TEMPORAL_DB_PORT, self.Counters, self.Sync_Queue)
+        self.Mon_Proc = NSD_Monitor(cfg.LOGGING_LEVEL, Mon_Pipe_Child)
+        self.Pkts_Proc = NSD_Process(cfg.LOGGING_LEVEL, cfg.TEMPORAL_DB_SERVER, cfg.TEMPORAL_DB_PORT, self.Sync_Queue)
+        self.Flows_Proc = NSD_Flow(cfg.LOGGING_LEVEL, cfg.TEMPORAL_DB_SERVER, cfg.TEMPORAL_DB_PORT, self.Sync_Queue)
 
         if daemon:
-            self.Net_Proc = NSD_Network(cfg.LOGGING_LEVEL, cfg.NETWORK_INTERFACE, self.Counters, self.Pkts_Queue, self.Sync_Queue,
-                                    cfg.PROTOCOLS_FILE)
+            self.Net_Proc = NSD_Network(cfg.LOGGING_LEVEL, cfg.NETWORK_INTERFACE, self.Pkts_Queue, self.Sync_Queue,
+                                        cfg.PROTOCOLS_FILE)
         else:
-            self.Pcap_Proc = NSD_Pcap(cfg.LOGGING_LEVEL, pcap_file, self.Counters, self.Pkts_Queue, self.Sync_Queue, cfg.PROTOCOLS_FILE)
+            self.Pcap_Proc = NSD_Pcap(cfg.LOGGING_LEVEL, pcap_file, self.Pkts_Queue, self.Sync_Queue,
+                                      cfg.PROTOCOLS_FILE)
 
     # To manage the global interruptions
     def NSD_Init_except_hook(self, exctype, value, traceback):
@@ -119,7 +118,6 @@ class NSD_Init:
 
         sys.excepthook = self.NSD_Init_except_hook
 
-
     # Start as daemon
     def NSD_Init_daemon(self):
         # Create the network process
@@ -138,6 +136,7 @@ class NSD_Init:
     # Start to analyze a PCAP file
     def NSD_Init_analyze_pcap(self):
         self.Pcap_Proc.NSD_Pcap_process()
+        self.Mon_Proc.NSD_Monitor_process()
 
 # Link all the process with main
 # for proc in Procs:

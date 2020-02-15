@@ -3,10 +3,11 @@ import logging
 from datetime import datetime
 import time
 import numpy as np
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 #from scipy.stats import gaussian_kde
 from sklearn import datasets, svm, metrics
 from sklearn.model_selection import train_test_split
+
 
 
 # Import NSD libraries
@@ -73,14 +74,42 @@ class NSD_AI:
 
     # PT1 training
     def NSD_AI_training_PT1(self, chats, data_ts_Not_CC, data_ts_CC):
-        classifier = svm.SVC(gamma=0.001)
+        gammas = [ 0.01, 0.003, 0.001, 0.0003, 0.0001, 0.00003, 0.00001 ]
+        gammas = [ 'scale' ]
+        kernels = [ 'rbf', 'sigmoid', 'poly' ]
+        #kernels = [ 'rbf' ]
+        best_score = 0.0
+        best_gamma = ''
+        best_kernel = ''
+
         X_train, X_test, y_train, y_test = train_test_split(np.concatenate([data_ts_Not_CC, data_ts_CC]),
                                                             np.concatenate([np.zeros(chats), np.ones(chats)]),
-                                                            test_size=0.1, shuffle=False)
-        classifier.fit(X_train, y_train)
-        predicted = classifier.predict(X_test)
-        print("Classification report for classifier %s:\n%s\n"
-              % (classifier, metrics.classification_report(y_test, predicted)))
+                                                            test_size=0.1, shuffle=True)
+
+        for kernel in kernels:
+            for gamma in gammas:
+                self.logger.info('running kernel {} and gamma {}'.format(kernel, gamma))
+                classifier = svm.SVC(gamma=gamma, kernel=kernel)
+                classifier.fit(X_train, y_train)
+                predicted = classifier.predict(X_test)
+                actual_score = metrics.precision_score(y_test, predicted)
+                self.logger.info('                                                |-> score {}'.format(actual_score))
+                if actual_score > best_score:
+                    best_kernel = kernel
+                    best_gamma = gamma
+                    best_score = actual_score
+
+        print("Best precision score:\n\t - kernel {}\n\t - gamma {}\n\t - precision {}\n".format(best_kernel,
+                                                                                                 best_gamma,
+                                                                                                 best_score))
+
+        #print("Classification report for classifier %s:\n%s\n"
+        #      % (classifier, metrics.classification_report(y_test, predicted)))
+
+
+        self.SQ.put('DATA_PROCESSED')
+        self.SQ.put('KILL')
+        exit(0)
 
 
         """

@@ -31,6 +31,9 @@ class NSD_Monitor:
 
     # monitor process
     def NSD_Monitor_process(self, pcap=False):
+        if self.log_level != 'DEBUG':
+            return 0
+
         while True:
             TCP_received_packets = NSD_Monitor_Data.NSD_Monitor_Data_get_total_received_TCP()
             UDP_received_packets = NSD_Monitor_Data.NSD_Monitor_Data_get_total_received_UDP()

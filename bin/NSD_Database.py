@@ -2,6 +2,7 @@
 
 # Imports python libraries
 from pymongo import MongoClient
+from bson import ObjectId
 from datetime import datetime
 import sys
 import logging
@@ -15,7 +16,8 @@ class NSD_Database:
         self.log_level = log_level
         self.logger = logging.getLogger(__name__)
         self.SQ = sync_queue
-        self.logger.info('Accessing database..')
+        if self.log_level == 'DEBUG':
+            self.logger.info('Accessing database..')
         try:
             self.client = MongoClient(db_server, db_port)
             self.db = self.client['NSD_db']
@@ -24,7 +26,8 @@ class NSD_Database:
             self.SQ.put('KILL')
         # raise ConnectionError('Error with database: {0}'.format(sys.exc_info()[0]))
         # sys.exit()
-        self.logger.info('Database ready!')
+        if self.log_level == 'DEBUG':
+            self.logger.info('Database ready!')
 
     # Insert ICMP packets into the memory database
     def NSD_Database_insert_ICMP_packet(self, pkt):
@@ -37,7 +40,7 @@ class NSD_Database:
                 'Code': pkt[3],
                 'Checksum': pkt[4],
                 'Header': pkt[5],
-                'Payload': pkt[6]
+                'Payload': str(pkt[6])
             }
         )
 
@@ -96,6 +99,21 @@ class NSD_Database:
             }
             packets.append(list(self.db.ICMP.find(find_query)))
         return packets
+
+    def NSD_Database_get_ICMP_date_by_id(self, id):
+        IPs = list(self.db.ICMP.find({'_id': ObjectId(id)}, {'Source_IP':1, 'Dest_IP':1, '_id': 0}))
+        return list(self.db.ICMP.find(
+            {'Source_IP': IPs[0]['Source_IP'], 'Dest_IP': IPs[0]['Dest_IP'], 'Type': 8, 'Code': 0},
+            {'Date': 1, '_id': 0}).sort('Date')
+        )
+        #return list(self.db.ICMP.find({'Type': 8, 'Code': 0}, {'Date': 1, '_id': 0}).sort('Date'))
+
+    def NSD_Database_get_ICMP_CC_date_by_id(self, id):
+        #IPs = list(self.db.ICMP_CC.find({'_id': ObjectId(id)}, {'Source_IP':1, 'Dest_IP':1, '_id': 0}))
+        #return list(self.db.ICMP_CC.find(
+        #    {'Source_IP': IPs[0]['Source_IP'], 'Dest_IP': IPs[0]['Dest_IP'], 'Type': 8, 'Code': 0},
+        #    {'Date': 1, '_id': 0}).sort('Date')
+        return list(self.db.ICMP_CC.find({'Type': 8, 'Code': 0}, {'Date': 1, '_id': 0}).sort('Date'))
 
     def NSD_Database_get_TCP_packets(self):
         aggregate_query = [{

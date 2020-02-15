@@ -5,7 +5,7 @@ import dpkt
 import logging
 
 # Import NSD libraries
-from bin.NSD_Counters import NSD_Counters
+from bin.NSD_Monitor_Data import NSD_Monitor_Data
 
 
 # Class to read pcaps file
@@ -45,8 +45,8 @@ class NSD_Pcap:
             try:
                 prot = int.from_bytes(pkt[23:24], byteorder='big')
                 getattr(self.PQ, 'NSD_Packets_Queue_insert_' + self.Protocols_Table[prot])(pkt)
-                getattr(NSD_Counters(),
-                        'NSD_Counters_increment_total_received_' + self.Protocols_Table[prot])()
+                getattr(NSD_Monitor_Data(),
+                        'NSD_Monitor_Data_increment_total_received_' + self.Protocols_Table[prot])()
             except AttributeError as msg:
                 self.logger.error('Not Implemented Error: ' + str(msg))
             except NotImplementedError as msg:
@@ -56,3 +56,6 @@ class NSD_Pcap:
                 self.logger.error('No protocol found: ' + str(prot) + '--> ' + str(pkt))
             except KeyboardInterrupt:
                 self.logger.error('Closing socket..')
+
+        self.SQ.put('PCAP_FINISHED')
+        #exit(0)

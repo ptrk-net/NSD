@@ -6,7 +6,7 @@ from os import path, remove
 
 # Imports NSD
 from conf import settings as cfg
-from .NSD_Counters import NSD_Counters
+from .NSD_Monitor_Data import NSD_Monitor_Data
 from .NSD_Database import NSD_Database
 from .NSD_Init import NSD_Init
 from .NSD_Monitor import NSD_Monitor

@@ -1,862 +1,606 @@
-2019-12-18 00:16:12,728 - bin - INFO - Completed configuring logger()!
-2019-12-18 00:16:12,729 - bin.NSD_Init - INFO - Preparing for analyze a PCAP file..
-2019-12-18 00:16:12,731 - bin.NSD_Pcap - INFO - Reading pcap..
-2019-12-18 00:16:12,731 - bin.NSD_Pcap - INFO - PCAP file parsed!
-2019-12-18 00:16:12,731 - bin.NSD_Pcap - INFO - Reading protocols..
-2019-12-18 00:16:12,732 - bin.NSD_Pcap - INFO - Protocols parsed!
-2019-12-18 00:16:12,732 - bin.NSD_Init - INFO - Starting up the monitor process...
-2019-12-18 00:16:12,733 - bin.NSD_Init - INFO - Monitor started!
-2019-12-18 00:16:12,733 - bin.NSD_Init - INFO - Starting up the TCP processing process...
-2019-12-18 00:16:12,748 - bin.NSD_Init - INFO - TCP processing started!
-2019-12-18 00:16:12,748 - bin.NSD_Init - INFO - Starting up the UDP processing process...
-2019-12-18 00:16:12,752 - bin.NSD_Init - INFO - UDP processing started!
-2019-12-18 00:16:12,752 - bin.NSD_Init - INFO - Starting up the ICMP processing process...
-2019-12-18 00:16:12,754 - bin.NSD_Init - INFO - ICMP processing started!
-2019-12-18 00:16:12,756 - bin.NSD_Init - INFO - ICMP Flows started!
-2019-12-18 00:16:12,763 - bin.NSD_Init - INFO - TCP Flows started!
-2019-12-18 00:16:12,766 - bin.NSD_Init - INFO - UDP Flows started!
-2019-12-18 00:16:12,766 - bin.NSD_Init - INFO - Implementing AI process..
-2019-12-18 00:16:12,767 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:12,767 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing HOPOPT..
-2019-12-18 00:16:12,778 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing HOPOPT..
-2019-12-18 00:16:12,779 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing HOPOPT..
-2019-12-18 00:16:12,780 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing IGMP..
-2019-12-18 00:16:12,780 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:12,780 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:12,780 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:12,780 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:12,780 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:12,781 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:12,781 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:12,781 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:12,781 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing IGMP..
-2019-12-18 00:16:12,783 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:12,821 - bin.NSD_Database - INFO - Accessing database..
-2019-12-18 00:16:12,824 - bin.NSD_Monitor - INFO - ------------------- PACKET PROCESS REPORT --------------------
-2019-12-18 00:16:12,825 - bin.NSD_Monitor - INFO - - TCP
-2019-12-18 00:16:12,826 - bin.NSD_Monitor - INFO - -- Received: 14
-2019-12-18 00:16:12,826 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
-2019-12-18 00:16:12,827 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:12,827 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:12,827 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:12,827 - bin.NSD_Database - INFO - Database ready!
-2019-12-18 00:16:12,828 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:12,828 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:12,828 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:12,828 - bin.NSD_Monitor - INFO - - UDP
-2019-12-18 00:16:12,828 - bin.NSD_Monitor - INFO - -- Received: 3
-2019-12-18 00:16:12,828 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
-2019-12-18 00:16:12,828 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:12,828 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:12,828 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:12,829 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:12,829 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:12,829 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,829 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:12,829 - bin.NSD_Monitor - INFO - - ICMP
-2019-12-18 00:16:12,829 - bin.NSD_Monitor - INFO - -- Received: 0
-2019-12-18 00:16:12,829 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
-2019-12-18 00:16:12,829 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:12,829 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:12,829 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:12,829 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:12,830 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:12,830 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:12,839 - bin.NSD_Database - INFO - Accessing database..
-2019-12-18 00:16:12,841 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,843 - bin.NSD_Database - INFO - Database ready!
-2019-12-18 00:16:12,846 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,848 - bin.NSD_Database - INFO - Accessing database..
-2019-12-18 00:16:12,852 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,853 - bin.NSD_Database - INFO - Accessing database..
-2019-12-18 00:16:12,854 - bin.NSD_Database - INFO - Database ready!
-2019-12-18 00:16:12,857 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,857 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,861 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,864 - bin.NSD_Database - INFO - Database ready!
-2019-12-18 00:16:12,865 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,865 - bin.NSD_Database - INFO - Accessing database..
-2019-12-18 00:16:12,868 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,870 - bin.NSD_Database - INFO - Database ready!
-2019-12-18 00:16:12,870 - bin.NSD_Database - INFO - Accessing database..
-2019-12-18 00:16:12,872 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,875 - bin.NSD_Database - INFO - Database ready!
-2019-12-18 00:16:12,875 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,876 - bin.NSD_Database - INFO - Accessing database..
-2019-12-18 00:16:12,877 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,879 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,881 - bin.NSD_Database - INFO - Accessing database..
-2019-12-18 00:16:12,884 - bin.NSD_Database - INFO - Database ready!
-2019-12-18 00:16:12,885 - bin.NSD_Database - INFO - Database ready!
-2019-12-18 00:16:12,887 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,889 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,892 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,893 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,896 - bin.NSD_Database - INFO - Accessing database..
-2019-12-18 00:16:12,897 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,899 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,899 - bin.NSD_Database - INFO - Database ready!
-2019-12-18 00:16:12,903 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,904 - bin.NSD_Database - INFO - Accessing database..
-2019-12-18 00:16:12,907 - bin.NSD_Database - INFO - Accessing database..
-2019-12-18 00:16:12,907 - bin.NSD_Database - INFO - Database ready!
-2019-12-18 00:16:12,910 - bin.NSD_Database - INFO - Accessing database..
-2019-12-18 00:16:12,911 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,915 - bin.NSD_Database - INFO - Database ready!
-2019-12-18 00:16:12,916 - bin.NSD_Database - INFO - Database ready!
-2019-12-18 00:16:12,916 - bin.NSD_Flow - DEBUG - NSD_Flow_flow_ICMP: get packets from database..
-2019-12-18 00:16:12,917 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,919 - bin.NSD_Database - INFO - Accessing database..
-2019-12-18 00:16:12,922 - bin.NSD_Database - INFO - Accessing database..
-2019-12-18 00:16:12,922 - bin.NSD_Database - INFO - Accessing database..
-2019-12-18 00:16:12,924 - bin.NSD_Database - INFO - Database ready!
-2019-12-18 00:16:12,926 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,926 - bin.NSD_Database - INFO - Accessing database..
-2019-12-18 00:16:12,927 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,929 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,930 - bin.NSD_Database - INFO - Database ready!
-2019-12-18 00:16:12,930 - bin.NSD_Flow - DEBUG - NSD_Flow_flow_UDP: get packets from database..
-2019-12-18 00:16:12,930 - bin.NSD_Database - INFO - Database ready!
-2019-12-18 00:16:12,931 - bin.NSD_Database - INFO - Database ready!
-2019-12-18 00:16:12,932 - bin.NSD_Flow - DEBUG - NSD_Flow_flow_TCP: get packets from database..
-2019-12-18 00:16:12,932 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,932 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,933 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,934 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,935 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,937 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,939 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,941 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,942 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,942 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,943 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,945 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,945 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,947 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,949 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,949 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,951 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,955 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,956 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,957 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,957 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,959 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,960 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,961 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,961 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,963 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,964 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,965 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,966 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,969 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,970 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,970 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,972 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,974 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,975 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,976 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,977 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,977 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,980 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,983 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,983 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,985 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,986 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,987 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,988 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,989 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,990 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,991 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,992 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,995 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,995 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,996 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,997 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,998 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:12,999 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,000 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,001 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,004 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,004 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,005 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,006 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,008 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,009 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,010 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,011 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,012 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,012 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,015 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,017 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,017 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,018 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,018 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,020 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,020 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,021 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,021 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,024 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,025 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,026 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,027 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,028 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,029 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,029 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,031 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,032 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,032 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,034 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,035 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,035 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,036 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,037 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,038 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,040 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,041 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,042 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,044 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,047 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,048 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,048 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,049 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,050 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,051 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,053 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,054 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,055 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,055 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,056 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,057 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,058 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,060 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,061 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,061 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,063 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,064 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,065 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,066 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,067 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,069 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,070 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,070 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,071 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,072 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,076 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,077 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,079 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,082 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,083 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,083 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,084 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,085 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,086 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,088 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,089 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,090 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,091 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,091 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,092 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,093 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,096 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,096 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,098 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,099 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,100 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,101 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,102 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,102 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,103 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,104 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,104 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,105 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,107 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,109 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,110 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,111 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,112 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,112 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,115 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,116 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,117 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,117 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,118 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,120 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,121 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,122 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,123 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,124 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,125 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,126 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,127 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,129 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,130 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,130 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,131 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,131 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,133 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,135 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,136 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,137 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,138 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,139 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,139 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,143 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,143 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,144 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,146 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,146 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,146 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,148 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,150 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,152 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,152 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,153 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,154 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,155 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,157 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,157 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,158 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,159 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,162 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,162 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,163 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,164 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,164 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,165 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,166 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,168 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,169 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,169 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,170 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,171 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,173 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,175 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,175 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,177 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,179 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,179 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,181 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,182 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,183 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,183 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,185 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,186 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,186 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,187 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,189 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,190 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,190 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,190 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,192 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,194 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,195 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,195 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,196 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,197 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,198 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,198 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,200 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,201 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,203 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,204 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,206 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,206 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,207 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,209 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,211 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,212 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,213 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,213 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,215 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,215 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,216 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,217 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,218 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,219 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,219 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,221 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,222 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,222 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,223 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,224 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,226 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,227 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,228 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,229 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,229 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,231 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,232 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,232 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,234 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,234 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,236 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,237 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,238 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,239 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,240 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,242 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,243 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,245 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,246 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,247 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,248 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,249 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,251 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,251 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,252 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,253 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,254 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,254 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,255 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,256 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,257 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,258 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,258 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,259 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,261 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,261 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,262 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,263 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,264 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,265 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,265 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,266 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,267 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,270 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,271 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,272 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,272 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,272 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,275 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,276 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,277 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,278 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,279 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,279 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,280 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,280 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,282 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,283 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,284 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,284 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,285 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,286 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,287 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,289 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,289 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,290 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,290 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,291 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,291 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,292 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,294 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,295 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,295 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,296 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,297 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,299 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,299 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,299 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,300 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,302 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,304 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,305 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,308 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,309 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,309 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,310 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,311 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,312 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,313 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,313 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,314 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,315 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,317 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,318 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,319 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,320 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,321 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,323 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,323 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,324 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,325 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,327 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,328 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,329 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,331 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,331 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,333 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,335 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,335 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,337 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,334 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,337 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,340 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,342 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,343 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,344 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,344 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,345 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,346 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,348 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,349 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,349 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,350 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,351 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,352 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,352 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,354 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,355 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,356 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,356 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,357 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,358 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,358 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,360 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,361 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,363 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,363 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,364 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,365 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,365 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,368 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,371 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,372 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,373 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,373 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,374 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,375 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,376 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,377 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,379 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,380 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,381 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,382 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,383 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,383 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,384 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,384 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,386 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,386 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,388 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,389 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,389 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,389 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,390 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,391 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,392 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,394 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,394 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,396 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,397 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,397 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,398 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,399 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,401 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,403 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,403 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,404 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,406 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,407 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,407 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,409 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,411 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,411 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,412 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,413 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,413 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,414 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,415 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,416 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,417 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,419 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,420 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,420 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,421 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,422 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,423 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,424 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,425 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,425 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,426 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,428 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,428 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,428 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,430 - bin.NSD_Database - DEBUG - NSD_Database_insert_TCP_packet: inserting..
-2019-12-18 00:16:13,434 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:13,434 - bin.NSD_Pcap - ERROR - No protocol found: 156--> b'\xff\xff\xff\xff\xff\xff\xa8\x9c\xedl\x8e\x9b\x08\x06\x00\x01\x08\x00\x06\x04\x00\x01\xa8\x9c\xedl\x8e\x9b\xc0\xa8\x16\x96\x00\x00\x00\x00\x00\x00\xc0\xa8\x16\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
-2019-12-18 00:16:13,434 - bin.NSD_Pcap - ERROR - No protocol found: 151--> b'\xff\xff\xff\xff\xff\xff\x98\x97\xd1\xa8j\x81\x08\x06\x00\x01\x08\x00\x06\x04\x00\x01\x98\x97\xd1\xa8j\x81\xc0\xa8\x16\x01\x00\x00\x00\x00\x00\x00\xc0\xa8\x16\x96'
-2019-12-18 00:16:13,435 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:13,435 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:13,435 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:13,436 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:13,437 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:13,438 - bin.NSD_Pcap - ERROR - Not Implemented Error: developing SSCOPMCE..
-2019-12-18 00:16:13,440 - bin.NSD_Monitor - INFO - ------------------- PACKET PROCESS REPORT --------------------
-2019-12-18 00:16:13,440 - bin.NSD_Monitor - INFO - - TCP
-2019-12-18 00:16:13,440 - bin.NSD_Monitor - INFO - -- Received: 523
-2019-12-18 00:16:13,440 - bin.NSD_Monitor - INFO - -- Inserted into database: 489
-2019-12-18 00:16:13,440 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:13,440 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:13,440 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:13,441 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:13,441 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:13,441 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:13,441 - bin.NSD_Monitor - INFO - - UDP
-2019-12-18 00:16:13,441 - bin.NSD_Monitor - INFO - -- Received: 8
-2019-12-18 00:16:13,441 - bin.NSD_Monitor - INFO - -- Inserted into database: 8
-2019-12-18 00:16:13,441 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:13,441 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:13,441 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:13,441 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:13,441 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:13,441 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:13,442 - bin.NSD_Monitor - INFO - - ICMP
-2019-12-18 00:16:13,442 - bin.NSD_Monitor - INFO - -- Received: 0
-2019-12-18 00:16:13,442 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
-2019-12-18 00:16:13,442 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:13,442 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:13,442 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:13,442 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:13,442 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:13,442 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:14,837 - bin.NSD_Monitor - INFO - ------------------- PACKET PROCESS REPORT --------------------
-2019-12-18 00:16:14,838 - bin.NSD_Monitor - INFO - - TCP
-2019-12-18 00:16:14,838 - bin.NSD_Monitor - INFO - -- Received: 523
-2019-12-18 00:16:14,839 - bin.NSD_Monitor - INFO - -- Inserted into database: 489
-2019-12-18 00:16:14,839 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:14,839 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:14,839 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:14,840 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:14,840 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:14,840 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:14,840 - bin.NSD_Monitor - INFO - - UDP
-2019-12-18 00:16:14,841 - bin.NSD_Monitor - INFO - -- Received: 8
-2019-12-18 00:16:14,841 - bin.NSD_Monitor - INFO - -- Inserted into database: 8
-2019-12-18 00:16:14,841 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:14,841 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:14,842 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:14,842 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:14,842 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:14,842 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:14,842 - bin.NSD_Monitor - INFO - - ICMP
-2019-12-18 00:16:14,842 - bin.NSD_Monitor - INFO - -- Received: 0
-2019-12-18 00:16:14,842 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
-2019-12-18 00:16:14,843 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:14,843 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:14,843 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:14,843 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:14,843 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:14,843 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:14,948 - bin.NSD_Flow - DEBUG - NSD_Flow_flow_UDP: get packets from database..
-2019-12-18 00:16:14,973 - bin.NSD_Flow - DEBUG - NSD_Flow_flow_TCP: get packets from database..
-2019-12-18 00:16:15,454 - bin.NSD_Monitor - INFO - ------------------- PACKET PROCESS REPORT --------------------
-2019-12-18 00:16:15,454 - bin.NSD_Monitor - INFO - - TCP
-2019-12-18 00:16:15,455 - bin.NSD_Monitor - INFO - -- Received: 523
-2019-12-18 00:16:15,455 - bin.NSD_Monitor - INFO - -- Inserted into database: 489
-2019-12-18 00:16:15,455 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:15,456 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:15,456 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:15,456 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:15,457 - bin.NSD_Monitor - INFO -    | 5df9612299de969a008a7891 |    673     |         0         |
-2019-12-18 00:16:15,457 - bin.NSD_Monitor - INFO -    | 5df961221d85fca6908a7891 |    325     |         0         |
-2019-12-18 00:16:15,457 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:15,457 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:15,458 - bin.NSD_Monitor - INFO - - UDP
-2019-12-18 00:16:15,458 - bin.NSD_Monitor - INFO - -- Received: 8
-2019-12-18 00:16:15,458 - bin.NSD_Monitor - INFO - -- Inserted into database: 8
-2019-12-18 00:16:15,459 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:15,459 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:15,459 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:15,459 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:15,460 - bin.NSD_Monitor - INFO -    | 5df96168541ebb930bb40c3b |    2     |         0         |
-2019-12-18 00:16:15,460 - bin.NSD_Monitor - INFO -    | 5df961227cc1ad94e58a7891 |    5     |         0         |
-2019-12-18 00:16:15,460 - bin.NSD_Monitor - INFO -    | 5df96167541ebb930bb40c39 |    2     |         0         |
-2019-12-18 00:16:15,460 - bin.NSD_Monitor - INFO -    | 5df96122696d68a6728a7891 |    4     |         0         |
-2019-12-18 00:16:15,461 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:15,461 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:15,461 - bin.NSD_Monitor - INFO - - ICMP
-2019-12-18 00:16:15,462 - bin.NSD_Monitor - INFO - -- Received: 0
-2019-12-18 00:16:15,462 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
-2019-12-18 00:16:15,462 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:15,462 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:15,462 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:15,462 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:15,462 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:15,462 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:16,854 - bin.NSD_Monitor - INFO - ------------------- PACKET PROCESS REPORT --------------------
-2019-12-18 00:16:16,855 - bin.NSD_Monitor - INFO - - TCP
-2019-12-18 00:16:16,855 - bin.NSD_Monitor - INFO - -- Received: 523
-2019-12-18 00:16:16,855 - bin.NSD_Monitor - INFO - -- Inserted into database: 489
-2019-12-18 00:16:16,856 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:16,856 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:16,856 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:16,857 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:16,857 - bin.NSD_Monitor - INFO -    | 5df9612299de969a008a7891 |    673     |         0         |
-2019-12-18 00:16:16,857 - bin.NSD_Monitor - INFO -    | 5df961221d85fca6908a7891 |    325     |         0         |
-2019-12-18 00:16:16,858 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:16,858 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:16,858 - bin.NSD_Monitor - INFO - - UDP
-2019-12-18 00:16:16,858 - bin.NSD_Monitor - INFO - -- Received: 8
-2019-12-18 00:16:16,859 - bin.NSD_Monitor - INFO - -- Inserted into database: 8
-2019-12-18 00:16:16,859 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:16,859 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:16,859 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:16,859 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:16,859 - bin.NSD_Monitor - INFO -    | 5df96168541ebb930bb40c3b |    2     |         0         |
-2019-12-18 00:16:16,859 - bin.NSD_Monitor - INFO -    | 5df961227cc1ad94e58a7891 |    5     |         0         |
-2019-12-18 00:16:16,859 - bin.NSD_Monitor - INFO -    | 5df96167541ebb930bb40c39 |    2     |         0         |
-2019-12-18 00:16:16,859 - bin.NSD_Monitor - INFO -    | 5df96122696d68a6728a7891 |    4     |         0         |
-2019-12-18 00:16:16,859 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:16,860 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:16,860 - bin.NSD_Monitor - INFO - - ICMP
-2019-12-18 00:16:16,860 - bin.NSD_Monitor - INFO - -- Received: 0
-2019-12-18 00:16:16,860 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
-2019-12-18 00:16:16,860 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:16,860 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:16,860 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:16,860 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:16,860 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:16,861 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:16,962 - bin.NSD_Flow - DEBUG - NSD_Flow_flow_UDP: get packets from database..
-2019-12-18 00:16:17,005 - bin.NSD_Flow - DEBUG - NSD_Flow_flow_TCP: get packets from database..
-2019-12-18 00:16:17,473 - bin.NSD_Monitor - INFO - ------------------- PACKET PROCESS REPORT --------------------
-2019-12-18 00:16:17,474 - bin.NSD_Monitor - INFO - - TCP
-2019-12-18 00:16:17,474 - bin.NSD_Monitor - INFO - -- Received: 523
-2019-12-18 00:16:17,474 - bin.NSD_Monitor - INFO - -- Inserted into database: 489
-2019-12-18 00:16:17,475 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:17,475 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:17,475 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:17,476 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:17,476 - bin.NSD_Monitor - INFO -    | 5df9612299de969a008a7891 |    673     |         0         |
-2019-12-18 00:16:17,476 - bin.NSD_Monitor - INFO -    | 5df961221d85fca6908a7891 |    325     |         0         |
-2019-12-18 00:16:17,477 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:17,477 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:17,477 - bin.NSD_Monitor - INFO - - UDP
-2019-12-18 00:16:17,478 - bin.NSD_Monitor - INFO - -- Received: 8
-2019-12-18 00:16:17,478 - bin.NSD_Monitor - INFO - -- Inserted into database: 8
-2019-12-18 00:16:17,478 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:17,478 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:17,478 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:17,479 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:17,479 - bin.NSD_Monitor - INFO -    | 5df96168541ebb930bb40c3b |    4     |         0         |
-2019-12-18 00:16:17,479 - bin.NSD_Monitor - INFO -    | 5df961227cc1ad94e58a7891 |    7     |         0         |
-2019-12-18 00:16:17,479 - bin.NSD_Monitor - INFO -    | 5df96167541ebb930bb40c39 |    2     |         0         |
-2019-12-18 00:16:17,479 - bin.NSD_Monitor - INFO -    | 5df96122696d68a6728a7891 |    5     |         0         |
-2019-12-18 00:16:17,479 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:17,479 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:17,479 - bin.NSD_Monitor - INFO - - ICMP
-2019-12-18 00:16:17,479 - bin.NSD_Monitor - INFO - -- Received: 0
-2019-12-18 00:16:17,479 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
-2019-12-18 00:16:17,479 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:17,480 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:17,480 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:17,480 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:17,480 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:17,480 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:18,871 - bin.NSD_Monitor - INFO - ------------------- PACKET PROCESS REPORT --------------------
-2019-12-18 00:16:18,872 - bin.NSD_Monitor - INFO - - TCP
-2019-12-18 00:16:18,872 - bin.NSD_Monitor - INFO - -- Received: 523
-2019-12-18 00:16:18,872 - bin.NSD_Monitor - INFO - -- Inserted into database: 489
-2019-12-18 00:16:18,873 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:18,873 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:18,873 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:18,873 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:18,874 - bin.NSD_Monitor - INFO -    | 5df9612299de969a008a7891 |    673     |         0         |
-2019-12-18 00:16:18,874 - bin.NSD_Monitor - INFO -    | 5df961221d85fca6908a7891 |    325     |         0         |
-2019-12-18 00:16:18,874 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:18,874 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:18,874 - bin.NSD_Monitor - INFO - - UDP
-2019-12-18 00:16:18,874 - bin.NSD_Monitor - INFO - -- Received: 8
-2019-12-18 00:16:18,874 - bin.NSD_Monitor - INFO - -- Inserted into database: 8
-2019-12-18 00:16:18,874 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:18,875 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:18,875 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:18,875 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:18,875 - bin.NSD_Monitor - INFO -    | 5df96168541ebb930bb40c3b |    4     |         0         |
-2019-12-18 00:16:18,875 - bin.NSD_Monitor - INFO -    | 5df961227cc1ad94e58a7891 |    7     |         0         |
-2019-12-18 00:16:18,875 - bin.NSD_Monitor - INFO -    | 5df96167541ebb930bb40c39 |    2     |         0         |
-2019-12-18 00:16:18,875 - bin.NSD_Monitor - INFO -    | 5df96122696d68a6728a7891 |    5     |         0         |
-2019-12-18 00:16:18,875 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:18,875 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:18,875 - bin.NSD_Monitor - INFO - - ICMP
-2019-12-18 00:16:18,875 - bin.NSD_Monitor - INFO - -- Received: 0
-2019-12-18 00:16:18,875 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
-2019-12-18 00:16:18,875 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:18,875 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:18,875 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:18,876 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:18,876 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:18,876 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:18,978 - bin.NSD_Flow - DEBUG - NSD_Flow_flow_UDP: get packets from database..
-2019-12-18 00:16:19,032 - bin.NSD_Flow - DEBUG - NSD_Flow_flow_TCP: get packets from database..
-2019-12-18 00:16:19,485 - bin.NSD_Monitor - INFO - ------------------- PACKET PROCESS REPORT --------------------
-2019-12-18 00:16:19,485 - bin.NSD_Monitor - INFO - - TCP
-2019-12-18 00:16:19,485 - bin.NSD_Monitor - INFO - -- Received: 523
-2019-12-18 00:16:19,486 - bin.NSD_Monitor - INFO - -- Inserted into database: 489
-2019-12-18 00:16:19,486 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:19,486 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:19,486 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:19,486 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:19,486 - bin.NSD_Monitor - INFO -    | 5df9612299de969a008a7891 |    673     |         0         |
-2019-12-18 00:16:19,487 - bin.NSD_Monitor - INFO -    | 5df961221d85fca6908a7891 |    325     |         0         |
-2019-12-18 00:16:19,487 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:19,487 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:19,487 - bin.NSD_Monitor - INFO - - UDP
-2019-12-18 00:16:19,487 - bin.NSD_Monitor - INFO - -- Received: 8
-2019-12-18 00:16:19,487 - bin.NSD_Monitor - INFO - -- Inserted into database: 8
-2019-12-18 00:16:19,487 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:19,487 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:19,488 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:19,488 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:19,488 - bin.NSD_Monitor - INFO -    | 5df96168541ebb930bb40c3b |    4     |         0         |
-2019-12-18 00:16:19,488 - bin.NSD_Monitor - INFO -    | 5df961227cc1ad94e58a7891 |    7     |         0         |
-2019-12-18 00:16:19,488 - bin.NSD_Monitor - INFO -    | 5df96167541ebb930bb40c39 |    2     |         0         |
-2019-12-18 00:16:19,488 - bin.NSD_Monitor - INFO -    | 5df96122696d68a6728a7891 |    5     |         0         |
-2019-12-18 00:16:19,488 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:19,488 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:19,489 - bin.NSD_Monitor - INFO - - ICMP
-2019-12-18 00:16:19,489 - bin.NSD_Monitor - INFO - -- Received: 0
-2019-12-18 00:16:19,489 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
-2019-12-18 00:16:19,489 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:19,489 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:19,489 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:19,489 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:19,490 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:19,490 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:20,889 - bin.NSD_Monitor - INFO - ------------------- PACKET PROCESS REPORT --------------------
-2019-12-18 00:16:20,889 - bin.NSD_Monitor - INFO - - TCP
-2019-12-18 00:16:20,889 - bin.NSD_Monitor - INFO - -- Received: 523
-2019-12-18 00:16:20,889 - bin.NSD_Monitor - INFO - -- Inserted into database: 489
-2019-12-18 00:16:20,889 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:20,889 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:20,889 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:20,890 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:20,890 - bin.NSD_Monitor - INFO -    | 5df9612299de969a008a7891 |    673     |         0         |
-2019-12-18 00:16:20,890 - bin.NSD_Monitor - INFO -    | 5df961221d85fca6908a7891 |    325     |         0         |
-2019-12-18 00:16:20,890 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:20,890 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:20,890 - bin.NSD_Monitor - INFO - - UDP
-2019-12-18 00:16:20,890 - bin.NSD_Monitor - INFO - -- Received: 8
-2019-12-18 00:16:20,890 - bin.NSD_Monitor - INFO - -- Inserted into database: 8
-2019-12-18 00:16:20,890 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:20,890 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:20,890 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:20,891 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:20,891 - bin.NSD_Monitor - INFO -    | 5df96168541ebb930bb40c3b |    4     |         0         |
-2019-12-18 00:16:20,891 - bin.NSD_Monitor - INFO -    | 5df961227cc1ad94e58a7891 |    7     |         0         |
-2019-12-18 00:16:20,891 - bin.NSD_Monitor - INFO -    | 5df96167541ebb930bb40c39 |    2     |         0         |
-2019-12-18 00:16:20,891 - bin.NSD_Monitor - INFO -    | 5df96122696d68a6728a7891 |    5     |         0         |
-2019-12-18 00:16:20,891 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:20,891 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:20,891 - bin.NSD_Monitor - INFO - - ICMP
-2019-12-18 00:16:20,891 - bin.NSD_Monitor - INFO - -- Received: 0
-2019-12-18 00:16:20,891 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
-2019-12-18 00:16:20,891 - bin.NSD_Monitor - INFO - -- Flows:
-2019-12-18 00:16:20,891 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:20,892 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |       STATUS      |
-2019-12-18 00:16:20,892 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:20,892 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+-------------------+
-2019-12-18 00:16:20,892 - bin.NSD_Monitor - INFO - 
-2019-12-18 00:16:20,997 - bin.NSD_Flow - DEBUG - NSD_Flow_flow_UDP: get packets from database..
-2019-12-18 00:16:21,063 - bin.NSD_Flow - DEBUG - NSD_Flow_flow_TCP: get packets from database..
+2020-02-15 10:28:04,666 - bin - INFO - Completed configuring logger()!
+2020-02-15 10:28:04,668 - bin.NSD_Init - INFO - Starting for training AI..
+2020-02-15 10:28:04,668 - bin.NSD_Init - INFO - Starting up the monitor process...
+2020-02-15 10:28:04,671 - bin.NSD_Init - INFO - Monitor started!
+2020-02-15 10:28:04,671 - bin.NSD_Init - INFO - Starting ICMP Flows process..
+2020-02-15 10:28:04,674 - bin.NSD_Init - INFO - ICMP Flows started!
+2020-02-15 10:28:04,674 - bin.NSD_Init - INFO - Starting TCP Flows process..
+2020-02-15 10:28:04,678 - bin.NSD_Init - INFO - TCP Flows started!
+2020-02-15 10:28:04,678 - bin.NSD_Init - INFO - Starting UDP Flows process..
+2020-02-15 10:28:04,682 - bin.NSD_Init - INFO - UDP Flows started!
+2020-02-15 10:28:04,712 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:04,713 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:04,713 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:04,713 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:04,713 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:04,714 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:04,714 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:04,714 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:04,714 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:04,714 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:04,714 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:04,715 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:04,715 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:04,715 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:04,715 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:04,715 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:04,715 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:04,716 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:04,716 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:04,716 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:04,716 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:04,716 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:04,716 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:04,717 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:04,717 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:04,717 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:04,717 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:04,718 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:04,727 - bin.NSD_AI - INFO - AI training starting...
+2020-02-15 10:28:06,723 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:06,723 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:06,723 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:06,723 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:06,723 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:06,723 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:06,723 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:06,723 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:06,724 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:06,724 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:06,724 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:06,724 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:06,724 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:06,724 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:06,724 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:06,724 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:06,724 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:06,724 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:06,724 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:06,724 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:06,724 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:06,724 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:06,725 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:06,725 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:06,725 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:06,725 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:06,725 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:06,725 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:08,730 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:08,730 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:08,730 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:08,730 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:08,731 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:08,731 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:08,731 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:08,731 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:08,731 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:08,731 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:08,731 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:08,731 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:08,731 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:08,731 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:08,732 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:08,732 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:08,732 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:08,732 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:08,732 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:08,732 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:08,732 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:08,732 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:08,732 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:08,732 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:08,732 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:08,733 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:08,733 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:08,733 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:10,738 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:10,739 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:10,739 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:10,739 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:10,740 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:10,740 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:10,741 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:10,741 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:10,741 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:10,742 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:10,742 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:10,742 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:10,742 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:10,745 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:10,745 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:10,745 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:10,746 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:10,746 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:10,746 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:10,747 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:10,747 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:10,747 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:10,748 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:10,748 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:10,748 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:10,749 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:10,749 - bin.NSD_Monitor - INFO -    | 5e468b04b32afd20e6369975 |    379123     |    FLOW: UPDATING   |
+2020-02-15 10:28:10,749 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:10,749 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:10,749 - bin.NSD_Monitor - INFO -    | 5e468a41bbea222842c61a6b |    170877     |    FLOW: UPDATING   |
+2020-02-15 10:28:10,749 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:10,749 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:10,750 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:10,750 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:12,755 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:12,756 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:12,756 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:12,756 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:12,756 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:12,756 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:12,756 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:12,756 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:12,756 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:12,756 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:12,757 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:12,757 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:12,757 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:12,757 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:12,757 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:12,757 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:12,757 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:12,757 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:12,757 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:12,758 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:12,758 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:12,758 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:12,758 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:12,758 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:12,758 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:12,758 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:12,758 - bin.NSD_Monitor - INFO -    | 5e468b04b32afd20e6369975 |    379123     |    FLOW: UPDATING   |
+2020-02-15 10:28:12,758 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:12,759 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:12,759 - bin.NSD_Monitor - INFO -    | 5e468a41bbea222842c61a6b |    170877     |    FLOW: UPDATING   |
+2020-02-15 10:28:12,759 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:12,759 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:12,759 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:12,759 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:14,764 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:14,764 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:14,765 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:14,765 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:14,765 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:14,765 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:14,765 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:14,765 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:14,765 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:14,765 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:14,765 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:14,766 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:14,766 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:14,766 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:14,766 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:14,766 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:14,766 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:14,766 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:14,766 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:14,766 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:14,767 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:14,767 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:14,767 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:14,767 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:14,767 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:14,767 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:14,767 - bin.NSD_Monitor - INFO -    | 5e468b04b32afd20e6369975 |    379123     |    FLOW: UPDATING   |
+2020-02-15 10:28:14,767 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:14,767 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:14,768 - bin.NSD_Monitor - INFO -    | 5e468a41bbea222842c61a6b |    170877     |    FLOW: UPDATING   |
+2020-02-15 10:28:14,768 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:14,768 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:14,768 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:14,768 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:16,772 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:16,772 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:16,772 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:16,772 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:16,773 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:16,773 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:16,773 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:16,773 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:16,773 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:16,773 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:16,773 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:16,773 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:16,773 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:16,774 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:16,774 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:16,774 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:16,774 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:16,774 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:16,774 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:16,774 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:16,774 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:16,774 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:16,774 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:16,775 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:16,775 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:16,775 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:16,775 - bin.NSD_Monitor - INFO -    | 5e468b04b32afd20e6369975 |    379123     |    FLOW: UPDATING   |
+2020-02-15 10:28:16,775 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:16,775 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:16,775 - bin.NSD_Monitor - INFO -    | 5e468a41bbea222842c61a6b |    170877     |    FLOW: UPDATING   |
+2020-02-15 10:28:16,775 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:16,775 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:16,776 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:16,776 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:18,781 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:18,781 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:18,782 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:18,782 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:18,782 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:18,782 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:18,782 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:18,782 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:18,782 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:18,782 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:18,782 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:18,783 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:18,783 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:18,783 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:18,783 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:18,783 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:18,783 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:18,783 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:18,783 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:18,783 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:18,783 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:18,784 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:18,784 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:18,784 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:18,784 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:18,784 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:18,784 - bin.NSD_Monitor - INFO -    | 5e468b04b32afd20e6369975 |    379123     |    FLOW: UPDATING   |
+2020-02-15 10:28:18,784 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:18,784 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:18,784 - bin.NSD_Monitor - INFO -    | 5e468a41bbea222842c61a6b |    170877     |    FLOW: UPDATING   |
+2020-02-15 10:28:18,785 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:18,785 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:18,785 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:18,785 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:20,790 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:20,790 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:20,790 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:20,791 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:20,791 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:20,791 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:20,791 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:20,791 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:20,791 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:20,791 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:20,791 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:20,791 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:20,791 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:20,792 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:20,792 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:20,792 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:20,792 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:20,792 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:20,792 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:20,792 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:20,792 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:20,792 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:20,792 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:20,793 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:20,793 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:20,793 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:20,793 - bin.NSD_Monitor - INFO -    | 5e468b04b32afd20e6369975 |    379123     |    FLOW: UPDATING   |
+2020-02-15 10:28:20,793 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:20,793 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:20,793 - bin.NSD_Monitor - INFO -    | 5e468a41bbea222842c61a6b |    170877     |    FLOW: UPDATING   |
+2020-02-15 10:28:20,793 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:20,793 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:20,793 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:20,794 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:22,799 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:22,799 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:22,799 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:22,800 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:22,800 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:22,800 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:22,800 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:22,800 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:22,800 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:22,800 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:22,800 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:22,800 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:22,801 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:22,801 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:22,801 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:22,801 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:22,801 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:22,801 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:22,801 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:22,801 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:22,801 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:22,802 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:22,802 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:22,802 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:22,802 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:22,802 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:22,802 - bin.NSD_Monitor - INFO -    | 5e468b04b32afd20e6369975 |    379123     |    FLOW: UPDATING   |
+2020-02-15 10:28:22,802 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:22,802 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:22,802 - bin.NSD_Monitor - INFO -    | 5e468a41bbea222842c61a6b |    170877     |    FLOW: UPDATING   |
+2020-02-15 10:28:22,803 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:22,803 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:22,803 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:22,803 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:24,808 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:24,808 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:24,808 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:24,809 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:24,809 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:24,809 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:24,809 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:24,809 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:24,809 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:24,809 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:24,809 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:24,809 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:24,810 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:24,810 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:24,810 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:24,810 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:24,810 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:24,810 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:24,810 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:24,810 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:24,810 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:24,811 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:24,811 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:24,811 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:24,811 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:24,811 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:24,811 - bin.NSD_Monitor - INFO -    | 5e468b04b32afd20e6369975 |    379123     |    FLOW: UPDATING   |
+2020-02-15 10:28:24,811 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:24,811 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:24,811 - bin.NSD_Monitor - INFO -    | 5e468a41bbea222842c61a6b |    170877     |    FLOW: UPDATING   |
+2020-02-15 10:28:24,812 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:24,812 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:24,812 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:24,812 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:26,816 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:26,816 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:26,816 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:26,816 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:26,817 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:26,817 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:26,817 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:26,817 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:26,817 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:26,817 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:26,817 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:26,817 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:26,817 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:26,817 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:26,818 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:26,818 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:26,818 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:26,818 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:26,818 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:26,818 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:26,818 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:26,818 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:26,818 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:26,818 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:26,819 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:26,819 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:26,819 - bin.NSD_Monitor - INFO -    | 5e468b04b32afd20e6369975 |    379123     |    FLOW: UPDATING   |
+2020-02-15 10:28:26,819 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:26,819 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:26,819 - bin.NSD_Monitor - INFO -    | 5e468a41bbea222842c61a6b |    170877     |    FLOW: UPDATING   |
+2020-02-15 10:28:26,819 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:26,819 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:26,819 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:26,820 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:28,824 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:28,825 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:28,825 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:28,826 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:28,826 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:28,826 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:28,827 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:28,827 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:28,827 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:28,827 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:28,828 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:28,828 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:28,828 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:28,829 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:28,829 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:28,829 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:28,829 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:28,830 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:28,830 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:28,830 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:28,831 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:28,831 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:28,831 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:28,832 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:28,832 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:28,832 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:28,832 - bin.NSD_Monitor - INFO -    | 5e468b04b32afd20e6369975 |    379123     |    FLOW: UPDATING   |
+2020-02-15 10:28:28,833 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:28,833 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:28,833 - bin.NSD_Monitor - INFO -    | 5e468a41bbea222842c61a6b |    170877     |    FLOW: UPDATING   |
+2020-02-15 10:28:28,834 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:28,834 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:28,834 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:28,835 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:30,842 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:30,843 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:30,843 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:30,843 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:30,843 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:30,843 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:30,843 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:30,843 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:30,843 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:30,843 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:30,844 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:30,844 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:30,844 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:30,844 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:30,844 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:30,844 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:30,844 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:30,844 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:30,844 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:30,845 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:30,845 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:30,845 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:30,845 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:30,845 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:30,845 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:30,845 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:30,845 - bin.NSD_Monitor - INFO -    | 5e468b04b32afd20e6369975 |    379123     |    FLOW: UPDATING   |
+2020-02-15 10:28:30,845 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:30,845 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:30,846 - bin.NSD_Monitor - INFO -    | 5e468a41bbea222842c61a6b |    170877     |    FLOW: UPDATING   |
+2020-02-15 10:28:30,846 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:30,846 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:30,846 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:30,846 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:32,851 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:32,851 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:32,851 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:32,852 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:32,852 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:32,852 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:32,852 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:32,852 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:32,852 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:32,852 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:32,852 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:32,852 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:32,852 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:32,853 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:32,853 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:32,853 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:32,853 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:32,853 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:32,853 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:32,853 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:32,853 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:32,853 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:32,853 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:32,853 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:32,854 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:32,854 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:32,854 - bin.NSD_Monitor - INFO -    | 5e468b04b32afd20e6369975 |    379123     |    FLOW: UPDATING   |
+2020-02-15 10:28:32,854 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:32,854 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:32,854 - bin.NSD_Monitor - INFO -    | 5e468a41bbea222842c61a6b |    170877     |    FLOW: UPDATING   |
+2020-02-15 10:28:32,854 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:32,854 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:32,854 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:32,854 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:34,860 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:34,860 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:34,860 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:34,861 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:34,861 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:34,861 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:34,861 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:34,861 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:34,861 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:34,861 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:34,861 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:34,862 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:34,862 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:34,862 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:34,862 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:34,862 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:34,862 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:34,862 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:34,862 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:34,862 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:34,863 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:34,863 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:34,863 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:34,863 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:34,863 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:34,863 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:34,863 - bin.NSD_Monitor - INFO -    | 5e468b04b32afd20e6369975 |    379123     |    FLOW: UPDATING   |
+2020-02-15 10:28:34,863 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:34,863 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:34,864 - bin.NSD_Monitor - INFO -    | 5e468a41bbea222842c61a6b |    170877     |    FLOW: UPDATING   |
+2020-02-15 10:28:34,864 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:34,864 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:34,864 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:34,864 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:36,870 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:36,870 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:36,870 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:36,870 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:36,870 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:36,870 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:36,870 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:36,871 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:36,871 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:36,871 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:36,871 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:36,871 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:36,871 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:36,871 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:36,871 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:36,871 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:36,872 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:36,872 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:36,872 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:36,872 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:36,872 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:36,872 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:36,872 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:36,872 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:36,872 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:36,873 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:36,873 - bin.NSD_Monitor - INFO -    | 5e468b04b32afd20e6369975 |    379123     |    FLOW: UPDATING   |
+2020-02-15 10:28:36,873 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:36,873 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:36,873 - bin.NSD_Monitor - INFO -    | 5e468a41bbea222842c61a6b |    170877     |    FLOW: UPDATING   |
+2020-02-15 10:28:36,873 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:36,873 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:36,873 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:36,873 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:38,879 - bin.NSD_Monitor - INFO - ------------------------ PACKET PROCESS REPORT -------------------------
+2020-02-15 10:28:38,879 - bin.NSD_Monitor - INFO - - TCP
+2020-02-15 10:28:38,879 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:38,879 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:38,879 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:38,879 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:38,879 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:38,880 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:38,880 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:38,880 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:38,880 - bin.NSD_Monitor - INFO - - UDP
+2020-02-15 10:28:38,880 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:38,880 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:38,880 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:38,880 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:38,880 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:38,880 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:38,881 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:38,881 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:38,881 - bin.NSD_Monitor - INFO - - ICMP
+2020-02-15 10:28:38,881 - bin.NSD_Monitor - INFO - -- Received: 0
+2020-02-15 10:28:38,881 - bin.NSD_Monitor - INFO - -- Inserted into database: 0
+2020-02-15 10:28:38,881 - bin.NSD_Monitor - INFO - -- Flows:
+2020-02-15 10:28:38,881 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:38,881 - bin.NSD_Monitor - INFO -    |           ID             |  Packets  |            STATUS          |
+2020-02-15 10:28:38,881 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:38,882 - bin.NSD_Monitor - INFO -    | 5e468b04b32afd20e6369975 |    379123     |    FLOW: UPDATING   |
+2020-02-15 10:28:38,882 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:38,882 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:38,882 - bin.NSD_Monitor - INFO -    | 5e468a41bbea222842c61a6b |    170877     |    FLOW: UPDATING   |
+2020-02-15 10:28:38,882 - bin.NSD_Monitor - INFO -    |                          |           |    AI: PT1_WAITING   |
+2020-02-15 10:28:38,882 - bin.NSD_Monitor - INFO -    |                          |           |    RESULT: SUSPECT   |
+2020-02-15 10:28:38,882 - bin.NSD_Monitor - INFO -    +--------------------------+-----------+----------------------------+
+2020-02-15 10:28:38,882 - bin.NSD_Monitor - INFO - 
+2020-02-15 10:28:40,794 - bin.NSD_Init - INFO - NSD_Init: INFO: Shutdown activated

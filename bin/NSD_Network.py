@@ -6,7 +6,7 @@ import socket
 import logging
 
 # Import NSD libraries
-from bin.NSD_Counters import NSD_Counters
+from bin.NSD_Monitor_Data import NSD_Monitor_Data
 
 
 class NSD_Network:
@@ -58,17 +58,16 @@ class NSD_Network:
             try:
                 packet = self.sock.recv(65565)
                 prot = int.from_bytes(packet[23:24], byteorder='big')
-                # self.logger.info('Protocol: ' + str(prot) + ' --> ' + self.Protocols_Table[prot])
                 getattr(self.PQ, 'NSD_Packets_Queue_insert_' + self.Protocols_Table[prot])(packet)
-                getattr(NSD_Counters(),
-                        '.NSD_Counters_increment_total_received_' + self.Protocols_Table[prot])()
+                getattr(NSD_Monitor_Data(),
+                        '.NSD_Monitor_Data_increment_total_received_' + self.Protocols_Table[prot])()
             except AttributeError as msg:
-                self.logger.error('Not Implemented Error: ' + str(msg))
+                self.logger.error('Not Implemented Error: {0}'.format(str(msg)))
             except NotImplementedError as msg:
-                self.logger.error('Not Implemented Error: ' + str(msg))
+                self.logger.error('Not Implemented Error: {0}'.format(str(msg)))
                 self.SQ.put('KILL')
             except KeyError as msg:
-                self.logger.error('No protocol found: ' + str(prot) + '--> ' + str(packet))
+                self.logger.error('No protocol found: {0} --> {1}'.format(str(prot), str(packet)))
             # self.logger.info(packet)
             except KeyboardInterrupt:
                 self.logger.error('Closing socket..')

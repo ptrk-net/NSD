@@ -23,6 +23,12 @@ UDP_NUMBER_PROCESS = 2
 ICMP_NUMBER_PROCESS = 1
 
 # LOGGING
-LOGGING_LEVEL = 'DEBUG'
+LOGGING_LEVEL = 'INFO'
 LOGGING_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 LOGGING_FILE = BASE_DIR + 'logging/NSD_log.log'
+
+# AI
+SET_CHATS = 500
+SET_PACKETS = 1000
+SET_TIME_DISCRETE = 30
+

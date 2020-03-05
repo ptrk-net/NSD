@@ -25,6 +25,14 @@ class NSD_Flow:
         self.DB = NSD_Database(self.log_level, self.db_server, self.db_port, self.SQ)  # MongoDB
 
 
+    def NSD_Flow_get_flows(self, prot):
+        flows_returned = []
+        while True:
+            for flow in getattr(self.DB, 'NSD_Database_get_' + prot + '_flows_id')():
+                if flow not in flows_returned:
+                    flows_returned.append(flow)
+                    yield flow
+
     def NSD_Flow_ICMP(self):
         self.NSD_Flow_fork_database()
 
@@ -92,40 +100,29 @@ class NSD_Flow:
                 # Update the counter
                 NSD_Monitor_Data.NSD_Monitor_Data_update_counter_flow_TCP(flow_id, len(flow))
 
-        # TODO
-        # 1. Pass the packets to AI
-
     def NSD_Flow_UDP(self):
         self.NSD_Flow_fork_database()
+        flows = self.NSD_Flow_get_flows('UDP')
 
+        # if self.log_level == 'DEBUG':
+            #self.logger.debug('UDP flow..')
         while True:
-            if self.log_level == 'DEBUG':
-                self.logger.debug('NSD_Flow_flow_UDP: get packets from database..')
+            flow = next(flows)
+            #self.logger.info('+++ new flow: ' + str(flow))
 
-            flows = []
-            while not flows:
-                flows = self.DB.NSD_Database_get_UDP_packets()
-                time.sleep(2)
+            # flow_id will be the objectID assigned by the database of the first packet inserted
+            # The database will ensure it's the only one
+            flow_id = str(flow[0]['_id'])
 
-            #if self.log_level == 'DEBUG':
-            #self.logger.debug('NSD_Flow_flow_TCP: .. done!')
+            # Update the status dict
+            if NSD_Monitor_Data.NSD_Monitor_Data_get_status_flow_UDP(flow_id) is None:
+                flow_status = {
+                    'Flow': opts.FLOW_UPDATING,
+                    'AI': opts.FLOW_AI_NOT_STARTED,
+                    'Result': opts.FLOW_AI_SUSPECT
+                }
+                NSD_Monitor_Data.NSD_Monitor_Data_update_status_flow_UDP(flow_id, flow_status)
 
-            for flow in flows:
-                # flow_id will be the objectID assigned by the database of the first packet inserted
-                # The database will ensure it's the only one
-                flow_id = str(flow[0]['_id'])
+            # Update the counter
+            NSD_Monitor_Data.NSD_Monitor_Data_update_counter_flow_UDP(flow_id, len(flow))
 
-                # Update the status dict
-                if NSD_Monitor_Data.NSD_Monitor_Data_get_status_flow_UDP(flow_id) is None:
-                    flow_status = {
-                        'Flow': opts.FLOW_UPDATING,
-                        'AI': opts.FLOW_AI_NOT_STARTED,
-                        'Result': opts.FLOW_AI_SUSPECT
-                    }
-                    NSD_Monitor_Data.NSD_Monitor_Data_update_status_flow_TCP(flow_id, flow_status)
-
-                # Update the counter
-                NSD_Monitor_Data.NSD_Monitor_Data_update_counter_flow_UDP(flow_id, len(flow))
-
-        # TODO
-        # 1. Pass the packets to AI

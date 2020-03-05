@@ -63,9 +63,10 @@ class NSD_Init:
 
     # Create the environment necessary to work
     def NSD_Init_startup(self, pcap_file, training, analyze):
-        # Create the monitor process
         pcap = False
         if pcap_file: pcap = True
+
+        # Create the monitor process
         self.logger.info('Starting up the monitor process...')
         Mon_P = Process(target=self.Mon_Proc.NSD_Monitor_process, args=(pcap,))
         Mon_P.daemon = True
@@ -127,8 +128,8 @@ class NSD_Init:
 
         # Create the AI process
         if training:
-            AIP = Process(target=self.AI_Proc.NSD_AI_training, args=(opts.CC_PT1, 'ICMP', cfg.SET_CHATS,
-                                                                       cfg.SET_PACKETS, cfg.SET_TIME_DISCRETE))
+            AIP = Process(target=self.AI_Proc.NSD_AI_training, args=(opts.CC_PT11, 'UDP', cfg.SET_CHATS,
+                                                                     cfg.SET_PACKETS, cfg.SET_INTERVALS))
             AIP.daemon = True
             AIP.start()
             self.Procs.append(AIP)
@@ -157,6 +158,7 @@ class NSD_Init:
     def NSD_Init_analyze_pcap(self):
         self.Pcap_Proc.NSD_Pcap_process()
         #self.Mon_Proc.NSD_Monitor_process(True)
+        exit()
 
     # Monitors queue to quit the program
     def NSD_exit(self):

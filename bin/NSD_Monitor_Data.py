@@ -130,8 +130,8 @@ class NSD_Monitor_Data:
         with NSD_Monitor_Data.__lock:
             flows = []
             for flow in dict(NSD_Monitor_Data.Counter_Flows_UDP):
-                flows.append([flow, NSD_Monitor_Data.Counter_Flows_UDP[flow],
-                              NSD_Monitor_Data.Status_Flows_UDP[flow]])
+                flows.append([flow, NSD_Monitor_Data.Counter_Flows_UDP[flow], "ok"])
+                              #NSD_Monitor_Data.Status_Flows_UDP[flow]])
 
             return flows
 

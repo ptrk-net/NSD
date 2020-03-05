@@ -19,7 +19,7 @@ class NSD_Pcap:
         self.SQ = sync_queue
         self.Protocols_Table = dict()
 
-        self.logger.info('Reading pcap..')
+        self.logger.info('Reading pcap file: ' + pcap_file)
         try:
             self.file = dpkt.pcap.Reader(open(pcap_file, 'rb'))
         except ValueError as e:

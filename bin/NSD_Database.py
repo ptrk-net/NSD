@@ -76,7 +76,8 @@ class NSD_Database:
                 'Dest_Port': pkt[3],
                 'Length': pkt[4],
                 'Checksum': pkt[5],
-                'Data': pkt[6]
+                'Data': pkt[6],
+                'cc': 0
             }
         )
 
@@ -138,7 +139,7 @@ class NSD_Database:
             packets.append(list(self.db.TCP.find(find_query)))
         return packets
 
-    def NSD_Database_get_UDP_packets(self):
+    def NSD_Database_get_UDP_flows_id(self):
         aggregate_query = [{
             '$group': {
                 '_id': {
@@ -149,8 +150,8 @@ class NSD_Database:
                 }
             }
         }]
-        packets = []
         flows = list(self.db.UDP.aggregate(aggregate_query))
+        packets = []
         for flow in flows:
             find_query = {
                 'Source_IP': flow['_id']['Source_IP'],
@@ -158,5 +159,17 @@ class NSD_Database:
                 'Dest_IP': flow['_id']['Dest_IP'],
                 'Dest_Port': flow['_id']['Dest_Port']
             }
-            packets.append(list(self.db.UDP.find(find_query)))
+            get_id = {'_id': 1, 'cc': 1}
+            packets.append(list(self.db.UDP.find(find_query, get_id).sort('Date').limit(1)))
         return packets
+
+    def NSD_Database_get_UDP_info_PT11_training_by_id(self, id):
+        IPs = list(self.db.UDP.find({'_id': ObjectId(id)}, {'Source_IP':1, 'Dest_IP':1, 'Source_Port':1,
+                                                            'Dest_Port':1, '_id': 0}))
+        return list(self.db.UDP.find(
+            {'Source_IP': IPs[0]['Source_IP'], 'Dest_IP': IPs[0]['Dest_IP'], 'Source_Port': IPs[0]['Source_Port'],
+             'Dest_Port': IPs[0]['Dest_Port']},
+            {'Data': 1, 'cc': 1, '_id': 0}).sort('Date')
+                    )
+
+

@@ -1,4 +1,4 @@
-# Database class
+# NSD_Database class
 
 # Imports python libraries
 from pymongo import MongoClient, errors
@@ -13,9 +13,9 @@ from conf.settings import DB_PCAP
 
 
 # Class to manage the app's db
-class Database:
+class NSD_Database:
 
-  # Init method
+  # NSD_Init method
   def __init__(self, log_level, db_server, db_port, db_name, sync_queue):
     self.log_level = log_level
     self.logger = logging.getLogger(__name__)
@@ -34,10 +34,10 @@ class Database:
       self.SQ.put('KILL')
 
     if self.log_level >= vrb.INFO:
-      self.logger.info('Database ready!')
+      self.logger.info('NSD_Database ready!')
 
   # Insert ICMP packets into the memory database
-  def Database_insert_ICMP_packet(self, pkt):
+  def insert_ICMP_packet(self, pkt):
     self.db.ICMP.insert_one(
       {
         'Date': datetime.now().strftime('%d/%m/%Y %H:%M:%S.%f'),
@@ -53,7 +53,7 @@ class Database:
     )
 
   # Insert TCP packets into the memory database
-  def Database_insert_TCP_packet(self, pkt):
+  def insert_TCP_packet(self, pkt):
     self.db.TCP.insert_one(
       {
         'Date': datetime.now().strftime('%d/%m/%Y %H:%M:%S.%f'),
@@ -73,7 +73,7 @@ class Database:
     )
 
   # Insert UDP packets into the memory database
-  def Database_insert_UDP_packet(self, pkt):
+  def insert_UDP_packet(self, pkt):
     self.db.UDP.insert_one(
       {
         'Date': datetime.now().strftime('%d/%m/%Y %H:%M:%S.%f'),
@@ -90,7 +90,7 @@ class Database:
     )
 
   # Reading memory database
-  def Database_get_ICMP_packets(self):
+  def get_ICMP_packets(self):
     aggregate_query = [{
       '$group': {
         '_id': {
@@ -109,7 +109,7 @@ class Database:
       packets.append(list(self.db.ICMP.find(find_query)))
     return packets
 
-  def Database_get_TCP_packets(self):
+  def get_TCP_packets(self):
     aggregate_query = [{
       '$group': {
         '_id': {
@@ -132,7 +132,7 @@ class Database:
       packets.append(list(self.db.TCP.find(find_query)))
     return packets
 
-  def Database_get_UDP_flows_id(self, tagged):
+  def get_UDP_flows_id(self, tagged):
     if tagged:
       aggregate_query = [
         {'$match': {'$or': [{'cc': 1}, {'cc': 0}]}},
@@ -155,7 +155,7 @@ class Database:
       packets.append(list(self.db.UDP.find(find_query, get_id).sort('Date').limit(1)))
     return packets
 
-  def Database_get_TCP_flows_id(self, tagged):
+  def get_TCP_flows_id(self, tagged):
     if tagged:
       aggregate_query = [
         {'$match': {'$or': [{'cc': 1}, {'cc': 0}]}},
@@ -182,7 +182,7 @@ class Database:
       packets.append(list(self.db.TCP.find(find_query, get_id).sort('Date').limit(1)))
     return packets
 
-  def Database_get_ICMP_flows_id(self, tagged):
+  def get_ICMP_flows_id(self, tagged):
     if tagged:
       aggregate_query = [
         {'$match': {'$or': [{'cc': 1}, {'cc': 0}]}},
@@ -205,7 +205,7 @@ class Database:
       packets.append(list(self.db.ICMP.find(find_query, get_id).sort('Date').limit(1)))
     return packets
 
-  def Database_get_RTP_flows_id(self, tagged):
+  def get_RTP_flows_id(self, tagged):
     if self.db_name == DB_PCAP:
       if tagged:
         aggregate_query = [
@@ -241,17 +241,17 @@ class Database:
       packets.append(list(self.db.UDP.find(find_query, get_id).sort('Date').limit(1)))
     return packets
 
-  def Database_get_RTP_traffic_by_id(self, id):
+  def get_RTP_traffic_by_id(self, id):
     IPs = list(self.db.UDP.find({'_id': ObjectId(id)}, {'Source_IP': 1, 'Dest_IP': 1, '_id': 0}))
     return list(self.db.UDP.find(
       {'Source_IP': IPs[0]['Source_IP'], 'Dest_IP': IPs[0]['Dest_IP']},
       {'Data': 1, '_id': 0}).sort('Date')
                 )
 
-  def Database_get_RTP_identification_by_id(self, id):
+  def get_RTP_identification_by_id(self, id):
     IP = self.db.UDP.find({'_id': ObjectId(id)}, {'Source_IP': 1, 'Dest_IP': 1, '_id': 0})
     return [IP[0]['Source_IP'], IP[0]['Dest_IP']]
 
-  def Database_drop_database(self):
+  def drop_database(self):
     if self.db_name == DB_PCAP:
       self.db.command('dropDatabase')

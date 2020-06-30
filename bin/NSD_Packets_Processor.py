@@ -5,14 +5,14 @@ import socket
 import logging
 
 # Import local libraries
-from bin.Database import Database
-from bin.Monitor import Monitor_Data
-from bin.Packets_Queue import Packets_Queue
+from bin.NSD_Database import NSD_Database
+from bin.NSD_Monitor import NSD_Monitor_Data
+from bin.NSD_Packets_Queue import NSD_Packets_Queue
 from conf import variables as vrb
 
 
 # Class to make the first packets classification based in the protocol
-class Processor:
+class NSD_Packets_Processor:
 
   def __init__(self, log_level, db_server, db_port, db_name, sync_queue, pcap_type=None):
     self.log_level = log_level
@@ -23,15 +23,15 @@ class Processor:
     self.db_name = db_name
     self.pcap_type = pcap_type
 
-  def Processor_fork_database(self):
-    self.DB = Database(self.log_level, self.db_server, self.db_port, self.db_name, self.SQ)
+  def fork_database(self):
+    self.DB = NSD_Database(self.log_level, self.db_server, self.db_port, self.db_name, self.SQ)
 
   # Process Live packets
-  def Processor_live_ICMP(self):
-    self.Processor_fork_database()
+  def process_ICMP_packets(self):
+    self.fork_database()
     while True:
       try:
-        packet = Packets_Queue.Packets_Queue_get_UDP()
+        packet = NSD_Packets_Queue.get_UDP_packet()
 
         Source_IP = socket.inet_ntoa(packet[26:30])
         Dest_IP = socket.inet_ntoa(packet[30:34])
@@ -42,20 +42,20 @@ class Processor:
         Payload = int.from_bytes(packet[42:50], byteorder='big')
         Traffic_CC = self.pcap_type
 
-        self.DB.Database_insert_ICMP_packet([Source_IP, Dest_IP, Type, Code, Checksum, Header, Payload,
+        self.DB.insert_ICMP_packet([Source_IP, Dest_IP, Type, Code, Checksum, Header, Payload,
                                              Traffic_CC])
 
-        Monitor_Data.Monitor_Data_increment_total_database_ICMP()
+        NSD_Monitor_Data.increment_total_database_ICMP()
       except KeyboardInterrupt:
         if self.log_level >= vrb.INFO:
           self.logger.info('Closing ICMP process..')
         return
 
-  def Processor_live_TCP(self):
-    self.Processor_fork_database()
+  def process_TCP_packets(self):
+    self.fork_database()
     while True:
       try:
-        packet = Packets_Queue.Packets_Queue_get_TCP()
+        packet = NSD_Packets_Queue.get_TCP_packet()
 
         Source_IP = socket.inet_ntoa(packet[26:30])
         Dest_IP = socket.inet_ntoa(packet[30:34])
@@ -70,21 +70,21 @@ class Processor:
         Data = packet[54:]
         Traffic_CC = self.pcap_type
 
-        self.DB.Database_insert_TCP_packet([Source_IP, Dest_IP, Source_Port, Dest_Port, Sequence_Number,
+        self.DB.insert_TCP_packet([Source_IP, Dest_IP, Source_Port, Dest_Port, Sequence_Number,
                                             ACK_Number, Flags, Window, Checksum, Urgent_Pointer, Data,
                                             Traffic_CC])
 
-        Monitor_Data.Monitor_Data_increment_total_database_TCP()
+        NSD_Monitor_Data.increment_total_database_TCP()
       except KeyboardInterrupt:
         if self.log_level >= vrb.INFO:
           self.logger.info('Closing TCP process..')
         return
 
-  def Processor_live_UDP(self):
-    self.Processor_fork_database()
+  def process_UDP_packets(self):
+    self.fork_database()
     while True:
       try:
-        packet = Packets_Queue.Packets_Queue_get_UDP()
+        packet = NSD_Packets_Queue.get_UDP_packet()
 
         Source_IP = socket.inet_ntoa(packet[26:30])
         Dest_IP = socket.inet_ntoa(packet[30:34])
@@ -96,10 +96,10 @@ class Processor:
         Data = packet[42:]
         Traffic_CC = self.pcap_type
 
-        self.DB.Database_insert_UDP_packet([Source_IP, Dest_IP, Source_Port, Dest_Port,
+        self.DB.insert_UDP_packet([Source_IP, Dest_IP, Source_Port, Dest_Port,
                                             Length, Checksum, UDP_type, Data, Traffic_CC])
 
-        Monitor_Data.Monitor_Data_increment_total_database_UDP()
+        NSD_Monitor_Data.increment_total_database_UDP()
       except KeyboardInterrupt:
         if self.log_level >= vrb.INFO:
           self.logger.info('Closing UDP process..')

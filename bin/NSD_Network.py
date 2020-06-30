@@ -1,4 +1,4 @@
-# Network class
+# NSD_Network class
 
 # Imports python libraries
 import platform
@@ -6,14 +6,14 @@ import socket
 import logging
 
 # Import local libraries
-from bin.Monitor import Monitor_Data
-from bin.Packets_Queue import Packets_Queue
+from bin.NSD_Monitor import NSD_Monitor_Data
+from bin.NSD_Packets_Queue import NSD_Packets_Queue
 from conf import variables as vrb
 
 
-class Network:
+class NSD_Network:
 
-  # Init method
+  # NSD_Init method
   def __init__(self, log_level, interface, sync_queue):
     self.log_level = log_level
     self.logger = logging.getLogger(__name__)
@@ -38,7 +38,7 @@ class Network:
     self.logger.info('Socket open!')
 
   # Listen to the network
-  def Network_rcv(self):
+  def receiver(self):
     self.logger.info('Ready to receive packets!')
     while True:
       try:
@@ -46,16 +46,16 @@ class Network:
         prot = int.from_bytes(packet[23:24], byteorder='big')
 
         if prot == 6:
-          Packets_Queue.Packets_Queue_insert_TCP(packet)
-          Monitor_Data.Monitor_Data_increment_total_received_TCP()
+          NSD_Packets_Queue.insert_TCP_packet(packet)
+          NSD_Monitor_Data.increment_total_received_TCP()
         elif prot == 17:
-          Packets_Queue.Packets_Queue_insert_UDP(packet)
-          Monitor_Data.Monitor_Data_increment_total_received_UDP()
+          NSD_Packets_Queue.insert_UDP_packet(packet)
+          NSD_Monitor_Data.increment_total_received_UDP()
         elif prot == 2:
-          Packets_Queue.Packets_Queue_insert_ICMP(packet)
-          Monitor_Data.Monitor_Data_increment_total_received_ICMP()
+          NSD_Packets_Queue.insert_ICMP_packet(packet)
+          NSD_Monitor_Data.increment_total_received_ICMP()
         else:
-          Monitor_Data.Monitor_Data_increment_total_received_ERROR()
+          NSD_Monitor_Data.increment_total_received_ERROR()
       except KeyboardInterrupt:
         if self.log_level >= vrb.INFO:
           self.logger.info('Closing sockets...')

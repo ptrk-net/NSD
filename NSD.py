@@ -5,13 +5,13 @@ import sys
 import argparse
 
 # Imports local libraries
-from bin.Init import Init
+from bin.NSD_Init import NSD_Init
 
 
 # Main function
 def main(argv):
   # Parse the parameters
-  parser = argparse.ArgumentParser(description='Network Steganography Detector based on OpenAI.')
+  parser = argparse.ArgumentParser(description='NSD_Network Steganography Detector based on OpenAI.')
   parser.add_argument('--verbosity',
                       help='1 - ERROR, 2 - WARNING, 3 - INFO, 4 - INFO MACHINE LEARNING, 10 - DEBUG',
                       default=0, type=int)
@@ -38,11 +38,11 @@ def main(argv):
     exit()
 
   # Call the init function
-  main_app = Init(args.daemon, args.training, args.pcapfile, args.verbosity)
-  main_app.Init_startup(args.pcapfile, args.training)
-  main_app.Init_main_processing(args.daemon, args.training, args.pcapfile)
+  main_app = NSD_Init(args.daemon, args.training, args.pcapfile, args.verbosity)
+  main_app.startup(args.pcapfile, args.training)
+  main_app.main_processing(args.daemon, args.training, args.pcapfile)
 
 
-# Init
+# NSD_Init
 if __name__ == '__main__':
   main(sys.argv[1:])

@@ -8,14 +8,14 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import AdaBoostClassifier, RandomForestClassifier
 
 # Import local libraries
-from bin.Database import Database
-from bin.Packets_Queue import Packets_Queue
-from bin.Monitor import Monitor_Data
+from bin.NSD_Database import NSD_Database
+from bin.NSD_Packets_Queue import NSD_Packets_Queue
+from bin.NSD_Monitor import NSD_Monitor_Data
 from conf import variables as vrb
 from conf import settings as cfg
 
 
-class Machine_Learning:
+class NSD_ML:
 
   def __init__(self, log_level, sync_queue, db_name, daemon, training):
     self.log_level = log_level
@@ -35,18 +35,18 @@ class Machine_Learning:
       self.logger.error('Files \'{}\' or \'{}\' do not exist.'.format(cfg.CLF, cfg.CLF_MCC))
       self.SQ.put('KILL')
 
-  def ML_fork_database(self):
-    self.DB = Database(self.log_level, self.db_server, self.db_port, self.db_name, self.SQ)
+  def fork_database(self):
+    self.DB = NSD_Database(self.log_level, self.db_server, self.db_port, self.db_name, self.SQ)
 
-  def ML_get_flows(self, prot):
+  def get_flows(self, prot):
     flows_returned = []
     while True:
-      for flow in getattr(Monitor_Data(), 'Monitor_Data_get_flows_' + prot)():
+      for flow in getattr(NSD_Monitor_Data(), 'get_flows_' + prot)():
         if flow not in flows_returned:
           flows_returned.append(flow)
           yield flow
 
-  def ML_get_counter_PDU(self, pkts):
+  def get_counter_PDU(self, pkts):
     counters_PDU = list()
     last_type = 0
     counter = 0
@@ -64,7 +64,7 @@ class Machine_Learning:
           last_type = rtp_type
     return counters_PDU
 
-  def ML_get_features(self, dataset, T, S, features):
+  def get_features(self, dataset, T, S, features):
     diffs = list()
     dset_features = list()
     block = [0, dataset[0], dataset[1]]
@@ -94,74 +94,74 @@ class Machine_Learning:
       diffs.clear()
     return dset_features
 
-  def ML_RTP_get_training_datasets(self):
+  def RTP_get_training_datasets(self):
     dataset_CC = []
     dataset_NCC = []
     counter_flows = 0
     still_flows = True
 
-    flows = self.ML_get_flows('RTP')
+    flows = self.get_flows('RTP')
     while still_flows:
       flow = next(flows)
       counter_flows += 1
-      pkts = self.DB.Database_get_RTP_traffic_by_id(flow[0])
+      pkts = self.DB.get_RTP_traffic_by_id(flow[0])
       if self.log_level >= vrb.INFO_ML:
         self.logger.info('Get Training Dataset: {} -> {}'.format(flow[0], int(flow[2])))
       if int(flow[2]) == 1:
-        dataset_CC.extend(self.ML_get_counter_PDU(pkts))
+        dataset_CC.extend(self.get_counter_PDU(pkts))
       else:
-        dataset_NCC.extend(self.ML_get_counter_PDU(pkts))
+        dataset_NCC.extend(self.get_counter_PDU(pkts))
 
       if self.log_level >= vrb.DEBUG:
         self.logger.debug('counter {} | flows {}'.format(counter_flows,
-                                                         Monitor_Data.Monitor_Data_get_total_flows_RTP()))
-      if counter_flows == Monitor_Data.Monitor_Data_get_total_flows_RTP():
+                                                         NSD_Monitor_Data.get_total_flows_RTP()))
+      if counter_flows == NSD_Monitor_Data.get_total_flows_RTP():
         still_flows = False
 
     total_len = min(len(dataset_NCC), len(dataset_CC))
     return dataset_NCC[:total_len], dataset_CC[:total_len]
 
-  def ML_get_RTP_features(self, features, T, S):
+  def get_RTP_features(self, features, T, S):
     counter_flows = 0
 
-    self.ML_fork_database()
+    self.fork_database()
 
-    flows = self.ML_get_flows('RTP')
+    flows = self.get_flows('RTP')
     while True:
       flow = next(flows)
       self.logger.info('Getting features for flow \'{}\'..'.format(flow[0]))
 
       counter_flows += 1
-      pkts = self.DB.Database_get_RTP_traffic_by_id(flow[0])
-      groups_PDU = self.ML_get_counter_PDU(pkts)
+      pkts = self.DB.get_RTP_traffic_by_id(flow[0])
+      groups_PDU = self.get_counter_PDU(pkts)
       if len(groups_PDU) < (features + T):
         groups_PDU.clear()
-        self.logger.error('Flow \'{}\' does not have enough traffic.'.format(flow[0]))
+        self.logger.error('NSD_Flow \'{}\' does not have enough traffic.'.format(flow[0]))
         if not self.daemon:
           self.SQ.put('KILL')
       else:
-        feat = self.ML_get_features(groups_PDU, T, S, features)
-        Packets_Queue.Packets_Queue_insert_RTP_Group_Features([flow[0], feat])
+        feat = self.get_features(groups_PDU, T, S, features)
+        NSD_Packets_Queue.insert_RTP_Group_Features([flow[0], feat])
         self.logger.info('Got features for flow \'{}\''.format(flow[0]))
 
-  def ML_evaluate(self, pcap):
+  def evaluate(self, pcap):
     sum_prediction = 0
 
-    self.ML_fork_database()
+    self.fork_database()
 
     while True:
       if self.log_level >= vrb.INFO:
         self.logger.info('Evaluate: getting data set...')
-      flow_info = Packets_Queue.Packets_Queue_get_RTP_PDU_Groups()
+      flow_info = NSD_Packets_Queue.get_RTP_PDU_Groups()
 
       self.logger.info('Evaluate: predicting for id \'{}\'..'.format(flow_info[0]))
       for feat in flow_info[1]:
         sum_prediction += int(self.CLF.predict(np.array(feat).reshape(1, -1)))
 
       if sum_prediction == 0 and self.log_level == vrb.DEBUG:
-        self.logger.info('Flow \'{}\' does not seem to have a network covert channel... by now'.format(flow_info[0]))
+        self.logger.info('NSD_Flow \'{}\' does not seem to have a network covert channel... by now'.format(flow_info[0]))
       else:
-        IP = self.DB.Database_get_RTP_identification_by_id(flow_info[0])
+        IP = self.DB.get_RTP_identification_by_id(flow_info[0])
         self.logger.critical(
           'NETWORK COVERT CHANNEL! With {} MCC metric, Source IP {} and Destination IP {}, RTP'.format(
             self.MCC, IP[0], IP[1]
@@ -171,18 +171,18 @@ class Machine_Learning:
       if pcap:
         if self.log_level >= vrb.INFO_ML:
           self.logger.info('Dropping temporal database..')
-        self.DB.Database_drop_database()
+        self.DB.drop_database()
         self.SQ.put('KILL')
 
-  def ML_training(self, features, T, S):
-    self.ML_fork_database()
+  def training(self, features, T, S):
+    self.fork_database()
 
     self.logger.info('Training: getting data sets..')
-    dataset_NCC, dataset_CC = self.ML_RTP_get_training_datasets()
+    dataset_NCC, dataset_CC = self.RTP_get_training_datasets()
 
     self.logger.info('Training: getting features..')
-    feat_NCC = self.ML_get_features(dataset_NCC, T, S, features)
-    feat_CC = self.ML_get_features(dataset_CC, T, S, features)
+    feat_NCC = self.get_features(dataset_NCC, T, S, features)
+    feat_CC = self.get_features(dataset_CC, T, S, features)
 
     sum_feat = len(feat_NCC)
     X_train, X_test, y_train, y_test = train_test_split(np.concatenate([feat_NCC, feat_CC]),
@@ -190,7 +190,7 @@ class Machine_Learning:
                                                         test_size=0.2, shuffle=True)
 
     for i in range(0, cfg.TRAINING_ITERATIONS):
-      self.logger.info('Init iteration number {}'.format(i))
+      self.logger.info('NSD_Init iteration number {}'.format(i))
 
       clf = AdaBoostClassifier(base_estimator=RandomForestClassifier(max_depth=10),
                                n_estimators=10000,

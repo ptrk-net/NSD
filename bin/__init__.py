@@ -6,15 +6,15 @@ from os import path, remove
 
 # Imports local libraries
 from conf import settings as cfg
-from .Monitor import Monitor_Data
-from .Database import Database
-from .Init import Init
-from .Monitor import Monitor
-from .Network import Network
-from .Packets_Queue import Packets_Queue
-from .Pcap import Pcap
-from .Processor import Processor
-from .Machine_Learning import Machine_Learning
+from .NSD_Monitor import NSD_Monitor_Data
+from .NSD_Database import NSD_Database
+from .NSD_Init import NSD_Init
+from .NSD_Monitor import NSD_Monitor
+from .NSD_Network import NSD_Network
+from .NSD_Packets_Queue import NSD_Packets_Queue
+from .NSD_Pcap import NSD_Pcap
+from .NSD_Packets_Processor import NSD_Packets_Processor
+from .NSD_ML import NSD_ML
 
 # If applicable, delete the existing log file to generate a fresh log file during each execution
 if path.isfile(cfg.LOGGING_FILE):

@@ -9,7 +9,7 @@
 8:0x08:EGP:Exterior Gateway Protocol
 9:0x09:IGP:Interior Gateway Protocol
 10:0x0A:BBN-RCC-MON:Monitoreo BBN RCC
-11:0x0B:NVP-II:Network Voice Protocol
+11:0x0B:NVP-II:NSD_Network Voice Protocol
 12:0x0C:PUP:Xerox PUP
 13:0x0D:ARGUS:ARGUS
 14:0x0E:EMCON:EMCON
@@ -29,7 +29,7 @@
 28:0x1C:IRTP:Internet Reliable Transaction Protocol
 29:0x1D:ISO-TP4:ISO Transport Protocol Class 4
 30:0x1E:NETBLT:Bulk Data Transfer Protocol
-31:0x1F:MFE-NSP:MFE Network Services Protocol
+31:0x1F:MFE-NSP:MFE NSD_Network Services Protocol
 32:0x20:MERIT-INP:MERIT Internodal Protocol
 33:0x21:DCCP:Datagram Congestion Control Protocol
 34:0x22:3PC:Third Party Connect Protocol
@@ -67,9 +67,9 @@
 69:0x45:SAT-MON:Monitoreo SATNET
 70:0x46:VISA:Protocolo VISA
 71:0x47:IPCV:Internet Packet Core Utility
-72:0x48:CPNX:Computer Protocol Network Executive
+72:0x48:CPNX:Computer Protocol NSD_Network Executive
 73:0x49:CPHB:Computer Protocol Heart Beat
-74:0x4A:WSN:Wang Span Network
+74:0x4A:WSN:Wang Span NSD_Network
 75:0x4B:PVP:Packet Video Protocol
 76:0x4C:BR-SAT-MON:Backroom SATNET Monitoring
 77:0x4D:SUN-ND:SUN ND PROTOCOL-Temporary
@@ -95,7 +95,7 @@
 97:0x61:ETHERIP:Ethernet-within-IP Encapsulation
 98:0x62:ENCAP:Cabecera de Encapsulació
 100:0x64:GMTP:GMTP
-101:0x65:IFMP:Ipsilon Flow Management Protocol
+101:0x65:IFMP:Ipsilon NSD_Flow Management Protocol
 102:0x66:PNNI:PNNI sobre IP
 103:0x67:PIM:Protocol Independent Multicast
 104:0x68:ARIS:ARIS

@@ -1,19 +1,19 @@
-# Pcap reading class
+# NSD_Pcap reading class
 
 # Imports python libraries
 import dpkt
 import logging
 
 # Import local libraries
-from bin.Monitor import Monitor_Data
-from bin.Packets_Queue import Packets_Queue
+from bin.NSD_Monitor import NSD_Monitor_Data
+from bin.NSD_Packets_Queue import NSD_Packets_Queue
 from conf import variables as vrb
 
 
 # Class to read pcaps file
-class Pcap:
+class NSD_Pcap:
 
-  # Init method
+  # NSD_Init method
   def __init__(self, log_level, sync_queue, pcapfile):
     self.log_level = log_level
     self.logger = logging.getLogger(__name__)
@@ -34,22 +34,22 @@ class Pcap:
       self.logger.info('PCAP file parsed!')
 
   # Process packets
-  def Pcap_process(self):
+  def process_pcapfile(self):
     self.logger.info('Getting packets from file...')
     for ts, pkt in self.file:
       prot = int.from_bytes(pkt[23:24], byteorder='big')
 
       if prot == 6:
-        Packets_Queue.Packets_Queue_insert_TCP(pkt)
-        Monitor_Data.Monitor_Data_increment_total_received_TCP()
+        NSD_Packets_Queue.insert_TCP_packet(pkt)
+        NSD_Monitor_Data.increment_total_received_TCP()
       elif prot == 17:
-        Packets_Queue.Packets_Queue_insert_UDP(pkt)
-        Monitor_Data.Monitor_Data_increment_total_received_UDP()
+        NSD_Packets_Queue.insert_UDP_packet(pkt)
+        NSD_Monitor_Data.increment_total_received_UDP()
       elif prot == 2:
-        Packets_Queue.Packets_Queue_insert_ICMP(pkt)
-        Monitor_Data.Monitor_Data_increment_total_received_ICMP()
+        NSD_Packets_Queue.insert_ICMP_packet(pkt)
+        NSD_Monitor_Data.increment_total_received_ICMP()
       else:
-        Monitor_Data.Monitor_Data_increment_total_received_ERROR()
+        NSD_Monitor_Data.increment_total_received_ERROR()
 
     self.logger.info('All packets readed!')
     self.SQ.put('PCAP_FINISHED')

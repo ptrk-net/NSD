@@ -11,7 +11,7 @@ from bin.NSD_Init import NSD_Init
 # Main function
 def main(argv):
   # Parse the parameters
-  parser = argparse.ArgumentParser(description='NSD_Network Steganography Detector based on OpenAI.')
+  parser = argparse.ArgumentParser(description='Network Steganography Detector')
   parser.add_argument('--verbosity',
                       help='1 - ERROR, 2 - WARNING, 3 - INFO, 4 - INFO MACHINE LEARNING, 10 - DEBUG',
                       default=0, type=int)

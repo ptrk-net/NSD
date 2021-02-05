@@ -55,13 +55,17 @@ class NSD_ML:
       if rtp_type == 124 or rtp_type == 103:
         if rtp_type == last_type:
           counter += 1
-        elif counter > 0:
-          last_type = rtp_type
-          counters_PDU.append(counter)
-          counter = 0
         else:
-          counter += 1
           last_type = rtp_type
+          # To discard the first two group of PDU of any conversation
+          if counter >= 20:
+            counter = 0
+          elif counter == 0:
+            counter += 1
+          else:
+            counter = 0
+            counters_PDU.append(counter)
+
     return counters_PDU
 
   def get_features(self, dataset, T, S, features):
@@ -158,14 +162,24 @@ class NSD_ML:
       for feat in flow_info[1]:
         sum_prediction += int(self.CLF.predict(np.array(feat).reshape(1, -1)))
 
+      flow_status = NSD_Monitor_Data.get_status_flow_RTP(flow_info[0])
       if sum_prediction == 0 and self.log_level == vrb.DEBUG:
-        self.logger.info('NSD_Flow \'{}\' does not seem to have a network covert channel... by now'.format(flow_info[0]))
+        if flow_status[0] == vrb.FLOW_FINISHED:
+          self.logger.info(
+            'NSD_Flow \'{}\' does not seem to have a network covert channel!'.format(flow_info[0]))
+          NSD_Monitor_Data.update_status_flow_RTP(flow_info[0],
+                                                  [flow_status[0], vrb.FLOW_ML_FINISHED, vrb.FLOW_ML_NEGATIVE])
+        else:
+          self.logger.info(
+            'NSD_Flow \'{}\' does not seem to have a network covert channel... by now'.format(flow_info[0]))
       else:
         IP = self.DB.get_RTP_identification_by_id(flow_info[0])
         self.logger.critical(
           'NETWORK COVERT CHANNEL! With {} MCC metric, Source IP {} and Destination IP {}, RTP'.format(
             self.MCC, IP[0], IP[1]
           ))
+        NSD_Monitor_Data.update_status_flow_RTP(flow_info[0],
+                                                [flow_status[0], vrb.FLOW_ML_FINISHED, vrb.FLOW_ML_POSITIVE])
         sum_prediction = 0
 
       if pcap:

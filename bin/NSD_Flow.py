@@ -110,15 +110,51 @@ class NSD_Flow:
       # flow_id will be the objectID assigned by the database of the first packet inserted
       # The database will ensure it's the only one
       flow_id = str(flow[0]['_id'])
+      rt_counter = len(flow)
+
+      if self.log_level >= vrb.DEBUG:
+        self.logger.debug('NSD_Flow: get RTP: flow id {}, category {}'.format(flow_id, flow[0]['cc']))
+
+      # Update the status dict
+      flow_status = NSD_Monitor_Data.get_status_flow_RTP(flow_id)
+      if flow_status is None:
+        #flow_status = int(flow[0]['cc'])
+        NSD_Monitor_Data.update_status_flow_RTP(flow_id,
+                                                [vrb.FLOW_UPDATING, vrb.FLOW_ML_NOT_STARTED, vrb.FLOW_ML_SUSPECT])
+      else:
+        if flow_status[0] == vrb.FLOW_FINISHED and flow_status[1] == vrb.FLOW_ML_FINISHED:
+          NSD_Monitor_Data.delete_flow_RTP(flow_id)
+        elif flow_status[0] == vrb.FLOW_UPDATING:
+          if rt_counter == NSD_Monitor_Data.get_counter_flow_RTP(flow_id):
+            NSD_Monitor_Data.update_status_flow_RTP(flow_id,
+                                                    [vrb.FLOW_FINISHED, flow_status[1], flow_status[2]])
+          else:
+            # Update counters
+            NSD_Monitor_Data.update_counter_flow_RTP(flow_id, rt_counter)
+            NSD_Monitor_Data.update_counter_flows_RTP()
+
+
+  def control_RTP_flows(self):
+    self.fork_database()
+
+    if self.log_level >= vrb.INFO:
+      self.logger.debug('control_RTP_flows: starting..')
+
+    flows = self.get_flows('RTP', tagged)
+    while True:
+      flow = next(flows)
+      flow_id = str(flow[0]['_id'])
 
       if self.log_level >= vrb.DEBUG:
         self.logger.debug('NSD_Flow: RTP: flow id {}, category {}'.format(flow_id, flow[0]['cc']))
 
-      # Update the status dict
-      if NSD_Monitor_Data.get_status_flow_RTP(flow_id) is None:
-        flow_status = int(flow[0]['cc'])
-        NSD_Monitor_Data.update_status_flow_RTP(flow_id, flow_status)
+      flow_status = NSD_Monitor_Data.get_status_flow_RTP(flow_id)
 
-      # Update counters
-      NSD_Monitor_Data.update_counter_flow_RTP(flow_id, len(flow))
-      NSD_Monitor_Data.update_counter_flows_RTP()
+      if flow_status[0] == FLOW_FINISHED and status[1] == FLOW_ML_FINISHED:
+        if self.log_level >= vrb.INFO:
+          self.logger.debug('NSD_Flow: control RTP: flow id {} to be deleted'.format(flow_id))
+
+        # delete from database
+        # delete from Monitor_Data
+
+
